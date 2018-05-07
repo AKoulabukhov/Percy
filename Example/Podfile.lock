@@ -1,0 +1,16 @@
+PODS:
+  - Percy (0.1.0)
+
+DEPENDENCIES:
+  - Percy (from `../`)
+
+EXTERNAL SOURCES:
+  Percy:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Percy: 88d88e3b2397e0a412e3de46b793427622455490
+
+PODFILE CHECKSUM: 6ddde4b46fc8afd73f16335266ae5d067aafac8c
+
+COCOAPODS: 1.4.0

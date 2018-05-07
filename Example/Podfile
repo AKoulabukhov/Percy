@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'Percy_Example' do
+  pod 'Percy', :path => '../'
+end
