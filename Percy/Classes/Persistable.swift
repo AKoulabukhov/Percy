@@ -43,23 +43,28 @@ public extension Persistable {
     static var identifierKey: String { return "id" }
     
     func onDelete(object: Object, in context: OperationContext) throws { }
+    
+    /// Returns predicate to find an associated object in database by identifier
+    static func makeAssociatedObjectPredicate(id: IDType) -> NSPredicate {
+        return NSPredicate(format: "%K == %@", identifierKey, id)
+    }
+    
+    /// Returns predicate to find an associated object in database
+    var associatedObjectPredicate: NSPredicate {
+        return Self.makeAssociatedObjectPredicate(id: id)
+    }
 }
 
 /// Default internal realization
 extension Persistable {
     
-    /// Method creates new NSManagedObject from persistable entity. Default realization creates empty Object and performs `fill`.
+    /// Method creates new NSManagedObject from persistable entity. Creates empty Object and performs `fill`.
     @discardableResult
     func toObject(in operationContext: OperationContext) throws -> Object {
         let entity = NSEntityDescription.entity(forEntityName: Object.entityName, in: operationContext.context)!
         let object = NSManagedObject(entity: entity, insertInto: operationContext.context) as! Object
         try self.fill(object: object, in: operationContext)
         return object
-    }
-    
-    /// Returns predicate to find an associated object in database
-    var associatedObjectPredicate: NSPredicate {
-        return NSPredicate(format: "%K == %@", Self.identifierKey, self.id)
     }
     
 }
