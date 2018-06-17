@@ -7,10 +7,10 @@
 import CoreData
 
 public struct StoreDescription {
-    let type: String
-    let configurationName: String?
-    let url: URL?
-    let options: [AnyHashable: Any]?
+    public let type: String
+    public let configurationName: String?
+    public let url: URL?
+    public let options: [AnyHashable: Any]?
 }
 
 extension Percy {
