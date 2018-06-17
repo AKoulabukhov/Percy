@@ -19,6 +19,7 @@
 		6FA865713074CAAE3E17F2ED21B4ED19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		79DC909C7BEDA77DAE336332A2FE64CB /* Percy+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E48BD330741F05F95FB466CB25A7075 /* Percy+Context.swift */; };
 		B532183720CF1BC900C8D72E /* PersistableSubentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532183620CF1BC900C8D72E /* PersistableSubentity.swift */; };
+		B59FD90220D6910500D8FCF8 /* StoreDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FD90120D6910500D8FCF8 /* StoreDescription.swift */; };
 		B5E5DD7A20A0DF1000342EBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7920A0DF1000342EBD /* Extensions.swift */; };
 		B5E5DD7F20A6ADC600342EBD /* Percy+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */; };
 		D95C47175583CF1FEEC89E1BCB6DFA01 /* Percy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +65,7 @@
 		AB629929EF4063C9B251F4AE928D1938 /* Pods-Percy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Percy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AD5F879EFB3D42770B7BAC7121830412 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B532183620CF1BC900C8D72E /* PersistableSubentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistableSubentity.swift; path = Percy/Classes/PersistableSubentity.swift; sourceTree = "<group>"; };
+		B59FD90120D6910500D8FCF8 /* StoreDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreDescription.swift; path = Percy/Classes/StoreDescription.swift; sourceTree = "<group>"; };
 		B5E5DD7920A0DF1000342EBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Percy/Classes/Extensions.swift; sourceTree = "<group>"; };
 		B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Percy+Transaction.swift"; path = "Percy/Classes/Percy+Transaction.swift"; sourceTree = "<group>"; };
 		D2D37E4BA592CD0ABDB1A622FF08C649 /* Pods-Percy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Percy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				0182DDFA074841D171DDE39E381D3B40 /* Percy+Observer.swift */,
 				76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */,
 				DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */,
+				B59FD90120D6910500D8FCF8 /* StoreDescription.swift */,
 				B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */,
 				4DA52BB1EDF3C070669AC87099CCC114 /* Percy+Info.swift */,
 				36A02CD6F5DB09559FCD2625049A1B21 /* PercyError.swift */,
@@ -304,6 +307,7 @@
 				DF926A25E117028ADF824A62D6A4BCF9 /* Percy+Operations.swift in Sources */,
 				4E0828551A28E970E41CEB6FCF72CD82 /* Percy+Stores.swift in Sources */,
 				B532183720CF1BC900C8D72E /* PersistableSubentity.swift in Sources */,
+				B59FD90220D6910500D8FCF8 /* StoreDescription.swift in Sources */,
 				B5E5DD7A20A0DF1000342EBD /* Extensions.swift in Sources */,
 				48092F6B7C705720C32A9387E02ED353 /* Percy-dummy.m in Sources */,
 				62945926BA376D7A028A839697A8819A /* Percy.swift in Sources */,

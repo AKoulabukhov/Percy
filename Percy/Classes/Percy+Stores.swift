@@ -6,13 +6,6 @@
 
 import CoreData
 
-public struct StoreDescription {
-    public let type: String
-    public let configurationName: String?
-    public let url: URL?
-    public let options: [AnyHashable: Any]?
-}
-
 extension Percy {
     
     private var defaultStoreDescription: StoreDescription {
