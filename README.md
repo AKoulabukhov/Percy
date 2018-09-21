@@ -37,15 +37,15 @@ import Percy
 
 extension Post: Persistable {
 
-init(object: PostObject, in context: OperationContext) throws {
-  id = Int(object.id)
-  text = object.text!
-}
+  init(object: PostObject, in context: OperationContext) throws {
+    id = Int(object.id)
+    text = object.text!
+  }
 
-func fill(object: PostObject, in context: OperationContext) throws {
-  object.id = Int32(id)
-  object.text = text
-}
+  func fill(object: PostObject, in context: OperationContext) throws {
+    object.id = Int32(id)
+    object.text = text
+  }
 
 }
 ```
