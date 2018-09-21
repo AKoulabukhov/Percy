@@ -25,8 +25,8 @@ The main part of library is Persistable protocol. It includes requirements to yo
 
 ```swift
 struct Post {
-let id: Int
-var text: String
+  let id: Int
+  var text: String
 }
 ```
 
@@ -38,13 +38,13 @@ import Percy
 extension Post: Persistable {
 
 init(object: PostObject, in context: OperationContext) throws {
-id = Int(object.id)
-text = object.text!
+  id = Int(object.id)
+  text = object.text!
 }
 
 func fill(object: PostObject, in context: OperationContext) throws {
-object.id = Int32(id)
-object.text = text
+  object.id = Int32(id)
+  object.text = text
 }
 
 }
