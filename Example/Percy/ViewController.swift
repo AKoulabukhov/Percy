@@ -67,7 +67,7 @@ extension ViewController {
     
     func setAvatarToUser(_ user: User, avatar: UIImage?) throws {
         var user = user
-        user.avatar = avatar.flatMap { UIImageJPEGRepresentation($0, 0.1) }
+        user.avatar = avatar.flatMap { $0.jpegData(compressionQuality: 0.1) }
         try! percy.update([user])
     }
     
@@ -80,6 +80,7 @@ extension ViewController {
         self.observer = nil
         try! percy.dropEntities(ofType: User.self)
         self.users = []
+        self.storageSize = percy.storageSize
         self.tableView.reloadData()
         self.setupObserver()
     }
