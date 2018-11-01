@@ -88,9 +88,11 @@ extension ViewController {
         // Background creation
         DispatchQueue.global().async { [percy] in
             let users = (0..<1000).map { _ in User(id: .randomId(), email: .randomEmail()) }
-            try! percy.create(users)
-            DispatchQueue.main.async {
-                AlertController.alert(title: "Gratz!", message: "Users successfully generated").show()
+            percy.create(users) { result in
+                switch result {
+                case .success: AlertController.alert(title: "Gratz!", message: "Users successfully generated").show()
+                case .failure(let error): AlertController.alert(title: "Error :(", message: error.localizedDescription).show()
+                }
             }
         }
     }

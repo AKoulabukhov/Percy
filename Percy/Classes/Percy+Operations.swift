@@ -70,7 +70,31 @@ extension Percy {
     
     // MARK: Async operations
     
+    public func create<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.create(entities, in: $0)}, completion: completion)
+    }
     
+    public func update<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.update(entities, in: $0)}, completion: completion)
+    }
+    
+    public func upsert<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.upsert(entities, in: $0) }, completion: completion)
+    }
+    
+    public func delete<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.delete(entities, in: $0) }, completion: completion)
+    }
+    
+    /// Drops all objects of given entity
+    public func dropEntities<Model: Persistable>(ofType type: Model.Type, completion: PercyResultHandler<Void>?) {
+        let request = fetchRequest(for: Model.self)
+        request.includesPropertyValues = false
+        performWithSave({ context in
+            let objects = try context.fetch(request)
+            objects.forEach { context.delete($0) }
+        }, completion: completion)
+    }
     
     // MARK: Private methods
     

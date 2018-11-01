@@ -54,4 +54,10 @@ public final class Transaction {
         }
     }
     
+    public func commit(completion: PercyResultHandler<Void>?) {
+        percy.performWithSave({ [operations] context in
+            try operations.forEach { try $0(context) }
+        }, completion: completion)
+    }
+    
 }

@@ -29,6 +29,7 @@ extension Percy {
         }
     }
     
+    /// Synchronous save
     func performWithSave(_ changesBlock: (NSManagedObjectContext) throws -> Void) throws {
         guard !coordinator.persistentStores.isEmpty else { throw PercyError.closedStorage }
         if Thread.isMainThread {
@@ -40,6 +41,17 @@ extension Percy {
                 try changesBlock(context)
                 try saveTemporaryContext(context)
             }
+        }
+    }
+    
+    /// Asynchronous save
+    func performWithSave(_ changesBlock: @escaping (NSManagedObjectContext) throws -> (), completion: PercyResultHandler<Void>?) {
+        guard !coordinator.persistentStores.isEmpty else { completion?(.failure(PercyError.closedStorage)); return }
+        let context = self.makeTemporaryContext()
+        context.perform { [weak self] in
+            do { try changesBlock(context) }
+            catch { DispatchQueue.main.async { completion?(.failure(error)) }; return }
+            self?.saveTemporaryContext(context, completion: completion)
         }
     }
     
@@ -72,4 +84,25 @@ extension Percy {
         }
     }
     
+    private func saveTemporaryContext(_ context: NSManagedObjectContext, completion: PercyResultHandler<Void>?) {
+        let result = context.saveWithResult()
+        
+        self.mainContext.performAndWait { [weak self] in
+            guard let `self` = self else { completion?(.failure(PercyError.closedStorage)); return }
+            guard case .success = result else { completion?(result); return }
+            
+            do { try self.saveMainContext(); completion?(.success) }
+            catch { completion?(.failure(error)) }
+        }
+    }
+    
+}
+
+fileprivate extension NSManagedObjectContext {
+    @discardableResult
+    func saveWithResult() -> PercyResult<Void> {
+        guard self.hasChanges else { return .success }
+        do { try self.save(); return .success }
+        catch { return .failure(error) }
+    }
 }
