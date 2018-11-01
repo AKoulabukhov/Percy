@@ -11,8 +11,8 @@ extension Percy {
     
     /// Current persistent stores files
     var storageURLs: [URL] {
-        let stores = coordinator.persistentStores.lazy
-        let fileStoresUrl = stores.flatMap { $0.url }
+        let fileStoresUrl = coordinator.persistentStores.lazy
+            .compactMap { $0.url }
             .filter { $0.isFileURL }
             .flatMap { $0.urlsWithWalFiles() }
             .filter { FileManager.default.fileExists(atPath: $0.path) }
@@ -21,9 +21,10 @@ extension Percy {
     
     /// Counts total storage size for all opened persistent storages
     public var storageSize: Int64 {
-        let attributes = storageURLs.lazy.flatMap { try? FileManager.default.attributesOfItem(atPath: $0.path) }
-        let sizes = attributes.flatMap { $0[.size] as? Int64 }
-        return sizes.reduce(0, +)
+        return storageURLs.lazy
+            .compactMap { try? FileManager.default.attributesOfItem(atPath: $0.path) }
+            .compactMap { $0[.size] as? Int64 }
+            .reduce(0, +)
     }
     
 }
