@@ -9,43 +9,39 @@
 import UIKit
 import Percy
 
+let percy = try! Percy(dataModelName: "Model")
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    let formatter = ByteCountFormatter()
-    
-    let percy = try! Percy(dataModelName: "Model")
-    var observer: Observer<User>?
-    
-    var users = [User]()
-    var storageSize: Int64 = 0
+    var liveList: LiveList<User>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.users = percy.getEntities(predicate: nil, sortDescriptors: nil, fetchLimit: nil)
-        self.storageSize = percy.storageSize
-        setupObserver()
+        setupLiveList()
     }
     
-    func setupObserver() {
-        let observer: Observer<User> = percy.observe()
-        observer.onChange = { [unowned self] users, change in
-            switch change {
-            case .inserted: self.users.append(contentsOf: users)
-            case .updated: users.forEach { user in self.indexOf(user).flatMap { self.users[$0] = user } }
-            case .deleted: users.forEach { user in self.indexOf(user).flatMap { _ = self.users.remove(at: $0) } }
-            }
-        }
-        observer.onFinish = { [unowned self] in
-            self.storageSize = self.percy.storageSize
-            self.tableView.reloadData()
-        }
-        self.observer = observer
+    func setupLiveList() {
+        liveList = percy.makeLiveList(filter: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"), sorting: { $0.id < $1.id })
+        liveList?.onChange = { [unowned self] in self.handleChange($0) }
+        liveList?.onFinish = { [unowned self] in self.refreshFooter() }
     }
     
-    func indexOf(_ user: User) -> Array<User>.Index? {
-        return self.users.index(where: { $0.id == user.id })
+    func handleChange(_ change: LiveList<User>.Change) {
+        let indexPaths: (Int) -> [IndexPath] = { [IndexPath(row: $0, section: 0)] }
+        switch change {
+        case .inserted(_, let index):
+            tableView.insertRows(at: indexPaths(index), with: .automatic)
+        case .updated(_, _, let index):
+            tableView.reloadRows(at: indexPaths(index), with: .automatic)
+        case .deleted(_, let index):
+            tableView.deleteRows(at: indexPaths(index), with: .automatic)
+        }
+    }
+    
+    func refreshFooter() {
+        self.tableView.footerView(forSection: 0)?.textLabel?.text = self.tableView(self.tableView, titleForFooterInSection: 0)
+        self.tableView.footerView(forSection: 0)?.sizeToFit()
     }
     
 }
@@ -55,7 +51,6 @@ class ViewController: UIViewController {
 extension ViewController {
     
     func upsertUser(_ user: User?) {
-        let percy = self.percy
         let alert = UpsertUserAlertFactory.makeAlert(user: user,
                     onCreate: { try! percy.create([$0]) },
                     onUpdate: { try! percy.update([$0]) },
@@ -76,19 +71,17 @@ extension ViewController {
     }
     
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
-        // Drop observer to prevent us from handling every deleted user
-        self.observer = nil
+        // Drop livelist to prevent us from handling every deleted user
+        self.liveList = nil
         try! percy.dropEntities(ofType: User.self)
-        self.users = []
-        self.storageSize = percy.storageSize
+        self.setupLiveList()
         self.tableView.reloadData()
-        self.setupObserver()
     }
     
     @IBAction func refreshAction(_ sender: UIBarButtonItem) {
         // Background creation
         DispatchQueue.global().async { [percy] in
-            let users = (0..<1000).map { _ in User(id: .randomId(), email: .randomEmail()) }
+            let users = (0..<100).map { _ in User(id: .randomId(), email: .randomEmail()) }
             percy.create(users) { result in
                 switch result {
                 case .success: AlertController.alert(title: "Gratz!", message: "Users successfully generated").show()
@@ -107,23 +100,24 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     var reuseIdentifier: String { return "Cell" }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return liveList?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        cell.textLabel?.text = users[indexPath.row].email
-        cell.detailTextLabel?.text = users[indexPath.row].id
-        cell.imageView?.image = users[indexPath.row].avatar.flatMap { UIImage(data: $0) }
+        let user = liveList!.items[indexPath.row]
+        cell.textLabel?.text = user.email
+        cell.detailTextLabel?.text = user.id
+        cell.imageView?.image = user.avatar.flatMap { UIImage(data: $0) }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        upsertUser(users[indexPath.row])
+        upsertUser(liveList?.items[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "Storage size: \(formatter.string(fromByteCount: storageSize))"
+        return "Storage size: \(ByteCountFormatter().string(fromByteCount: percy.storageSize))"
     }
     
 }
@@ -140,7 +134,8 @@ extension String {
     }
     
     static func randomId() -> String {
-        return String.random(maxLength: 8)
+        let id = (arc4random() % 1000) + 1000
+        return String(id) + random(maxLength: 2)
     }
     
     static func randomEmail() -> String {

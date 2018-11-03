@@ -8,7 +8,7 @@
 import CoreData
 
 /// Protocol hiding entity identifier type
-public protocol Identifier: CVarArg { }
+public protocol Identifier: CVarArg, Hashable { }
 extension Int: Identifier { }
 extension String: Identifier { }
 

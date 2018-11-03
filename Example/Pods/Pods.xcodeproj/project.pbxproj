@@ -25,7 +25,7 @@
 		B5E5DD7F20A6ADC600342EBD /* Percy+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */; };
 		D95C47175583CF1FEEC89E1BCB6DFA01 /* Percy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF926A25E117028ADF824A62D6A4BCF9 /* Percy+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */; };
-		F49632957684F08BA9EB514E7DDB03CD /* Percy+Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182DDFA074841D171DDE39E381D3B40 /* Percy+Observer.swift */; };
+		F49632957684F08BA9EB514E7DDB03CD /* Percy+LiveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0036A6021B7E37E26AD690BD05E123A7 /* Percy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Percy.xcconfig; sourceTree = "<group>"; };
-		0182DDFA074841D171DDE39E381D3B40 /* Percy+Observer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Observer.swift"; path = "Percy/Classes/Percy+Observer.swift"; sourceTree = "<group>"; };
+		0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+LiveList.swift"; path = "Percy/Classes/Percy+LiveList.swift"; sourceTree = "<group>"; };
 		030F58BFC9E231766A9F647F78C1FE80 /* Percy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Percy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Percy-umbrella.h"; sourceTree = "<group>"; };
 		1DC270B773D7D407F97838B7C8F216E3 /* Persistable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Persistable.swift; path = Percy/Classes/Persistable.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				1DC270B773D7D407F97838B7C8F216E3 /* Persistable.swift */,
 				B532183620CF1BC900C8D72E /* PersistableSubentity.swift */,
 				9E48BD330741F05F95FB466CB25A7075 /* Percy+Context.swift */,
-				0182DDFA074841D171DDE39E381D3B40 /* Percy+Observer.swift */,
+				0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */,
 				76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */,
 				DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */,
 				B59FD90120D6910500D8FCF8 /* StoreDescription.swift */,
@@ -312,7 +312,7 @@
 				B5E5DD7F20A6ADC600342EBD /* Percy+Transaction.swift in Sources */,
 				79DC909C7BEDA77DAE336332A2FE64CB /* Percy+Context.swift in Sources */,
 				62CA6B40CB5D57446C5C5AFF969CD225 /* Percy+Info.swift in Sources */,
-				F49632957684F08BA9EB514E7DDB03CD /* Percy+Observer.swift in Sources */,
+				F49632957684F08BA9EB514E7DDB03CD /* Percy+LiveList.swift in Sources */,
 				DF926A25E117028ADF824A62D6A4BCF9 /* Percy+Operations.swift in Sources */,
 				4E0828551A28E970E41CEB6FCF72CD82 /* Percy+Stores.swift in Sources */,
 				B532183720CF1BC900C8D72E /* PersistableSubentity.swift in Sources */,
