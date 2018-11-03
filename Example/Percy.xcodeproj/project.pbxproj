@@ -16,7 +16,6 @@
 		B5D7607B2094F928004C2BAA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5D760792094F928004C2BAA /* Model.xcdatamodeld */; };
 		B5D7608620950E13004C2BAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7608520950E13004C2BAA /* User.swift */; };
 		B5DE95EA2095BC8000C7192B /* UpsertUserAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE95E92095BC8000C7192B /* UpsertUserAlertFactory.swift */; };
-		B5DE95EC209621D300C7192B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE95EB209621D300C7192B /* Post.swift */; };
 		B5E5DD7C20A38D0C00342EBD /* UserAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7B20A38D0C00342EBD /* UserAvatar.swift */; };
 		D25176E60AC71AA9626CE0D8 /* Pods_Percy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF78E0A31470BBEF3B14B1E5 /* Pods_Percy_Example.framework */; };
 /* End PBXBuildFile section */
@@ -38,7 +37,6 @@
 		B5D7607A2094F928004C2BAA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B5D7608520950E13004C2BAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5DE95E92095BC8000C7192B /* UpsertUserAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpsertUserAlertFactory.swift; sourceTree = "<group>"; };
-		B5DE95EB209621D300C7192B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B5E5DD7B20A38D0C00342EBD /* UserAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatar.swift; sourceTree = "<group>"; };
 		B99D1886C220C928E0212D67 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CF78E0A31470BBEF3B14B1E5 /* Pods_Percy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Percy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				B5D7608520950E13004C2BAA /* User.swift */,
-				B5DE95EB209621D300C7192B /* Post.swift */,
 				B5E5DD7B20A38D0C00342EBD /* UserAvatar.swift */,
 			);
 			path = Models;
@@ -271,7 +268,6 @@
 				B5D7608620950E13004C2BAA /* User.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				B5DE95EC209621D300C7192B /* Post.swift in Sources */,
 				B53208B820B73FCD002679A5 /* AlertController.swift in Sources */,
 				B5DE95EA2095BC8000C7192B /* UpsertUserAlertFactory.swift in Sources */,
 				B5E5DD7C20A38D0C00342EBD /* UserAvatar.swift in Sources */,

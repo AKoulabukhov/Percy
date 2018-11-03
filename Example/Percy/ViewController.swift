@@ -23,20 +23,8 @@ class ViewController: UIViewController {
     
     func setupLiveList() {
         liveList = percy.makeLiveList(filter: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"), sorting: { $0.id < $1.id })
-        liveList?.onChange = { [unowned self] in self.handleChange($0) }
+        liveList?.onChange = { [unowned self] in $0.updateTableView(self.tableView) }
         liveList?.onFinish = { [unowned self] in self.refreshFooter() }
-    }
-    
-    func handleChange(_ change: LiveList<User>.Change) {
-        let indexPaths: (Int) -> [IndexPath] = { [IndexPath(row: $0, section: 0)] }
-        switch change {
-        case .inserted(_, let index):
-            tableView.insertRows(at: indexPaths(index), with: .automatic)
-        case .updated(_, _, let index):
-            tableView.reloadRows(at: indexPaths(index), with: .automatic)
-        case .deleted(_, let index):
-            tableView.deleteRows(at: indexPaths(index), with: .automatic)
-        }
     }
     
     func refreshFooter() {
@@ -48,7 +36,7 @@ class ViewController: UIViewController {
 
 // MARK: - Actions
 
-extension ViewController {
+fileprivate extension ViewController {
     
     func upsertUser(_ user: User?) {
         let alert = UpsertUserAlertFactory.makeAlert(user: user,
@@ -81,7 +69,7 @@ extension ViewController {
     @IBAction func refreshAction(_ sender: UIBarButtonItem) {
         // Background creation
         DispatchQueue.global().async { [percy] in
-            let users = (0..<100).map { _ in User(id: .randomId(), email: .randomEmail()) }
+            let users = (0..<5).map { _ in User(id: .randomId(), email: .randomEmail()) }
             percy.create(users) { result in
                 switch result {
                 case .success: AlertController.alert(title: "Gratz!", message: "Users successfully generated").show()
@@ -142,4 +130,18 @@ extension String {
         return "\(String.random(maxLength: 6))@\((String.random(maxLength: 4))).\((String.random(maxLength: 2)))".lowercased()
     }
     
+}
+
+fileprivate extension LiveList.Change {
+    func updateTableView(_ tableView: UITableView) {
+        switch self {
+        case .inserted(_, let index): tableView.insertRows(at: [index.indexPath], with: .automatic)
+        case .updated(_, _, let index): tableView.reloadRows(at: [index.indexPath], with: .automatic)
+        case .deleted(_, let index): tableView.deleteRows(at: [index.indexPath], with: .automatic)
+        }
+    }
+}
+
+fileprivate extension Int {
+    var indexPath: IndexPath { return IndexPath(row: self, section: 0) }
 }

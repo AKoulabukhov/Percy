@@ -13,6 +13,21 @@ public final class Percy {
         static let defaultDatabaseName = "\(Bundle.main.displayName.preparedToFileName()).sqlite"
     }
     
+    /**
+     
+     Initialize a new store
+     
+     - throws:
+     And error of type `PercyError`
+     
+     - parameters:
+     - dataModelName: Name of the CoreData model WITHOUT `.momd` extension
+     - useDefaultStore: Defaults `true`, if `false` - you take responsibility to manually open and close custom store (e.g. EncryptedCoreData)
+     
+     An error can be thrown if there is no dataModel was found in your Bundle
+     
+    */
+    
     public init(dataModelName: String, useDefaultStore: Bool = true) throws {
         guard let modelURL = Bundle.main.url(forResource: dataModelName, withExtension: Const.dataModelExtension) else { throw PercyError.modelNotFound }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else { throw PercyError.modelBadFormat }
