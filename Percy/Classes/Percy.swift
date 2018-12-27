@@ -22,14 +22,15 @@ public final class Percy {
      
      - parameters:
      - dataModelName: Name of the CoreData model WITHOUT `.momd` extension
+     - bundle: Bundle which contains dataModel, `.main` by default
      - useDefaultStore: Defaults `true`, if `false` - you take responsibility to manually open and close custom store (e.g. EncryptedCoreData)
      
      An error can be thrown if there is no dataModel was found in your Bundle
      
     */
     
-    public init(dataModelName: String, useDefaultStore: Bool = true) throws {
-        guard let modelURL = Bundle.main.url(forResource: dataModelName, withExtension: Const.dataModelExtension) else { throw PercyError.modelNotFound }
+    public init(dataModelName: String, bundle: Bundle = .main, useDefaultStore: Bool = true) throws {
+        guard let modelURL = bundle.url(forResource: dataModelName, withExtension: Const.dataModelExtension) else { throw PercyError.modelNotFound }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else { throw PercyError.modelBadFormat }
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         if useDefaultStore { try openDefaultStore() }

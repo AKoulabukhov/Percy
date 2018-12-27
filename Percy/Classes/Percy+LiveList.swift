@@ -40,7 +40,7 @@ public final class LiveList<T: Persistable> {
     private let filter: NSPredicate?
     private let sorting: LiveListSorting<T>?
     
-    public private(set) var items: [T]
+    public private(set) var items = [T]()
     
     public var onStart: (() -> Void)?
     public var onChange: ((Change) -> Void)?
@@ -50,12 +50,16 @@ public final class LiveList<T: Persistable> {
         self.filter = filter
         self.sorting = sorting
         self.percy = percy
-        let items: [T] = percy.getEntities(predicate: filter, sortDescriptors: nil, fetchLimit: nil)
-        self.items = sorting == nil ? items : items.sorted(by: sorting!)
+        reloadData()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(managedObjectContextObjectsDidChange),
                                                name: .NSManagedObjectContextObjectsDidChange,
                                                object: context)
+    }
+    
+    public func reloadData() {
+        let items: [T] = percy.getEntities(predicate: filter, sortDescriptors: nil, fetchLimit: nil)
+        self.items = sorting.flatMap { items.sorted(by: $0) } ?? items
     }
     
     @objc private func managedObjectContextObjectsDidChange(notification: Notification) {
