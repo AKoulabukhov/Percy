@@ -14,11 +14,14 @@ let percy = try! Percy(dataModelName: "Model")
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var liveList: LiveList<User>?
+    var observer: ChangeObserver<UserAvatar>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLiveList()
+        setupObserver()
     }
     
     func setupLiveList() {
@@ -26,6 +29,12 @@ class ViewController: UIViewController {
         liveList = percy.makeLiveList(filter: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"), sorting: { $0.id < $1.id })
         liveList?.onChange = { [unowned self] in $0.updateTableView(self.tableView) }
         liveList?.onFinish = { [unowned self] in self.refreshFooter() }
+    }
+    
+    func setupObserver() {
+        // Observe avatar updates
+        observer = percy.makeObserver()
+        observer?.onChange = { print($0) }
     }
     
     func refreshFooter() {
@@ -52,7 +61,7 @@ fileprivate extension ViewController {
     func setAvatarToUser(_ user: User, avatar: UIImage?) throws {
         var user = user
         user.avatar = avatar.flatMap { $0.jpegData(compressionQuality: 0.1) }
-        try! percy.update([user])
+        try percy.update([user])
     }
     
     @IBAction func addUserAction(_ sender: UIBarButtonItem) {
@@ -60,10 +69,12 @@ fileprivate extension ViewController {
     }
     
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
-        // Drop livelist to prevent us from handling every deleted user
+        // Drop livelist & observer to prevent us from handling every deleted user
         self.liveList = nil
+        self.observer = nil
         try! percy.dropEntities(ofType: User.self)
         self.setupLiveList()
+        self.setupObserver()
         self.tableView.reloadData()
     }
     

@@ -63,7 +63,26 @@ let predicate = Post.makeAssociatedObjectPredicate(id: 1)
 let savedPost: Post = percy.first(predicate: predicate, sortDescriptors: nil)!
 ```
 
-Percy comes with custom CoreData stores support (like EncryptedCoreData) and Observers, which allow you to track store updates.
+Percy comes with custom CoreData stores support (e.g. EncryptedCoreData) and classes, which allow you to track store updates.
+
+## Changes tracking
+
+There are two classes allowing you to track database contents and its changes.
+
+### LiveList
+
+`LiveList` - class that stores array of `Persistable` objects. This list can be _filtered with NSPredicate and sorted with custom function_ if needed. You can use it as Data Source for `UITableView` or `UICollectionView`.
+
+Usage is pretty simple:
+1. Ask instance of `Percy` for a LiveList with required filter and sorting.
+2. Set `onChange` closure to perform row operations with your Table or Collection.
+3. Alternatively you can just call `reloadData()` in `LiveList.onFinish` closure.
+
+### ChangeObserver
+
+`ChangeObserver` - class which not stores objects in memory, but instead can just notify about _some object was added, updated or deleted_. `ChangeObserver` also supports filtering. This can be useful with non-UI modules of your app, like _notifications schedulers, synchronization mechanisms and so on_.
+
+Examples of using `LiveList` and `ChangeObserver` can be found in **Percy.xcworkspace**.
 
 ## Example
 
@@ -72,7 +91,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - iOS 9.0+
-- Xcode 9+
+- Xcode 10+
 
 ## Installation
 

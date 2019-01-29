@@ -8,27 +8,15 @@
 import Foundation
 import CoreData
 
-public enum LiveListChangeType: CaseIterable {
-    case deleted, updated, inserted
-    
-    var coreDataKey: String {
-        switch self {
-        case .inserted: return NSInsertedObjectsKey
-        case .updated: return NSUpdatedObjectsKey
-        case .deleted: return NSDeletedObjectsKey
-        }
-    }
-}
-
-public typealias LiveListSorting<T> = (T, T) -> Bool
-
 extension Percy {
-    public func makeLiveList<T>(filter: NSPredicate? = nil, sorting: LiveListSorting<T>? = nil) -> LiveList<T> {
+    public func makeLiveList<T>(filter: NSPredicate? = nil, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> {
         return LiveList(context: mainContext, filter: filter, sorting: sorting, in: self)
     }
 }
 
 public final class LiveList<T: Persistable> {
+    
+    public typealias Sorting = (T, T) -> Bool
     
     public enum Change {
         case deleted(T, index: Int)
@@ -38,7 +26,7 @@ public final class LiveList<T: Persistable> {
     
     private unowned let percy: Percy
     private let filter: NSPredicate?
-    private let sorting: LiveListSorting<T>?
+    private let sorting: Sorting?
     
     public private(set) var items = [T]()
     
@@ -46,7 +34,7 @@ public final class LiveList<T: Persistable> {
     public var onChange: ((Change) -> Void)?
     public var onFinish: (() -> Void)?
     
-    init(context: NSManagedObjectContext, filter: NSPredicate?, sorting: LiveListSorting<T>?, in percy: Percy) {
+    init(context: NSManagedObjectContext, filter: NSPredicate?, sorting: Sorting?, in percy: Percy) {
         self.filter = filter
         self.sorting = sorting
         self.percy = percy
@@ -79,7 +67,7 @@ public final class LiveList<T: Persistable> {
             onChange?(change)
         }
         
-        LiveListChangeType.allCases.forEach { changeType in
+        PercyChangeType.allCases.forEach { changeType in
             guard let objects = userInfo[changeType] else { return }
             
             objects.forEach {
@@ -176,15 +164,8 @@ public final class LiveList<T: Persistable> {
         }
     }
     
-    func indexToInsertEntity(_ entity: T, sorting: LiveListSorting<T>) -> Int {
+    func indexToInsertEntity(_ entity: T, sorting: Sorting) -> Int {
         return items.firstIndex { !sorting($0, entity) } ?? items.count
     }
     
-}
-
-fileprivate extension Dictionary where Key == AnyHashable {
-    subscript (key: LiveListChangeType) -> Set<NSManagedObject>? {
-        guard let result = self[key.coreDataKey] as? Set<NSManagedObject>, !result.isEmpty else { return nil }
-        return result
-    }
 }

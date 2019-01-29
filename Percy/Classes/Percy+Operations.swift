@@ -58,6 +58,16 @@ extension Percy {
         try performWithSave { try delete(entities, in: $0) }
     }
     
+    public func getIdentifiers<Model: Persistable>(for type: Model.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?) -> [Model.IDType] {
+        let request = NSFetchRequest<NSDictionary>(entityName: Model.Object.entityName)
+        request.predicate = predicate
+        request.sortDescriptors = sortDescriptors
+        fetchLimit.flatMap { request.fetchLimit = $0 }
+        request.resultType = .dictionaryResultType
+        request.propertiesToFetch = [Model.identifierKey]
+        return self.performSync { try $0.fetch(request).compactMap { $0[Model.identifierKey] as? Model.IDType } } ?? []
+    }
+    
     /// Drops all objects of given entity
     public func dropEntities<Model: Persistable>(ofType type: Model.Type) throws {
         let request = fetchRequest(for: Model.self)

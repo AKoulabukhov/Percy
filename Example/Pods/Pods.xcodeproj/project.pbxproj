@@ -23,6 +23,8 @@
 		B59FD90220D6910500D8FCF8 /* StoreDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FD90120D6910500D8FCF8 /* StoreDescription.swift */; };
 		B5E5DD7A20A0DF1000342EBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7920A0DF1000342EBD /* Extensions.swift */; };
 		B5E5DD7F20A6ADC600342EBD /* Percy+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */; };
+		C99D84A222004139000E7D46 /* Percy+ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D84A122004139000E7D46 /* Percy+ChangeObserver.swift */; };
+		C99D84A4220041AB000E7D46 /* PercyChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D84A3220041AB000E7D46 /* PercyChangeType.swift */; };
 		D95C47175583CF1FEEC89E1BCB6DFA01 /* Percy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF926A25E117028ADF824A62D6A4BCF9 /* Percy+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */; };
 		F49632957684F08BA9EB514E7DDB03CD /* Percy+LiveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */; };
@@ -70,6 +72,8 @@
 		B59FD90120D6910500D8FCF8 /* StoreDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreDescription.swift; path = Percy/Classes/StoreDescription.swift; sourceTree = "<group>"; };
 		B5E5DD7920A0DF1000342EBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Percy/Classes/Extensions.swift; sourceTree = "<group>"; };
 		B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Percy+Transaction.swift"; path = "Percy/Classes/Percy+Transaction.swift"; sourceTree = "<group>"; };
+		C99D84A122004139000E7D46 /* Percy+ChangeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Percy+ChangeObserver.swift"; path = "Percy/Classes/Percy+ChangeObserver.swift"; sourceTree = "<group>"; };
+		C99D84A3220041AB000E7D46 /* PercyChangeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PercyChangeType.swift; path = Percy/Classes/PercyChangeType.swift; sourceTree = "<group>"; };
 		D2D37E4BA592CD0ABDB1A622FF08C649 /* Pods-Percy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Percy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Stores.swift"; path = "Percy/Classes/Percy+Stores.swift"; sourceTree = "<group>"; };
 		DE451F73864AD4B2273FC0239DDCFEA1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,11 +203,13 @@
 				B532183620CF1BC900C8D72E /* PersistableSubentity.swift */,
 				9E48BD330741F05F95FB466CB25A7075 /* Percy+Context.swift */,
 				0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */,
+				C99D84A122004139000E7D46 /* Percy+ChangeObserver.swift */,
 				76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */,
 				DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */,
 				B59FD90120D6910500D8FCF8 /* StoreDescription.swift */,
 				B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */,
 				4DA52BB1EDF3C070669AC87099CCC114 /* Percy+Info.swift */,
+				C99D84A3220041AB000E7D46 /* PercyChangeType.swift */,
 				B52D454920EE06C100ED4C51 /* PercyResult.swift */,
 				36A02CD6F5DB09559FCD2625049A1B21 /* PercyError.swift */,
 				B5E5DD7920A0DF1000342EBD /* Extensions.swift */,
@@ -319,6 +325,8 @@
 				B59FD90220D6910500D8FCF8 /* StoreDescription.swift in Sources */,
 				B5E5DD7A20A0DF1000342EBD /* Extensions.swift in Sources */,
 				48092F6B7C705720C32A9387E02ED353 /* Percy-dummy.m in Sources */,
+				C99D84A4220041AB000E7D46 /* PercyChangeType.swift in Sources */,
+				C99D84A222004139000E7D46 /* Percy+ChangeObserver.swift in Sources */,
 				62945926BA376D7A028A839697A8819A /* Percy.swift in Sources */,
 				1A94E63F6E0264F7790B2917AFCC2F32 /* PercyError.swift in Sources */,
 				6CA5D9297F4471A93E8C1EB468E06882 /* Persistable.swift in Sources */,
