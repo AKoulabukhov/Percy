@@ -50,9 +50,9 @@ fileprivate extension ViewController {
     
     func upsertUser(_ user: User?) {
         let alert = UpsertUserAlertFactory.makeAlert(user: user,
-                    onCreate: { try! percy.create([$0]) },
-                    onUpdate: { try! percy.update([$0]) },
-                    onDelete: { try! percy.delete([$0]) },
+                    onCreate: { try! percy.create($0) },
+                    onUpdate: { try! percy.update($0) },
+                    onDelete: { try! percy.delete($0) },
                     onAddAvatar: { [unowned self] in try! self.setAvatarToUser($0, avatar: #imageLiteral(resourceName: "Avatar")) },
                     onRemoveAvatar: { [unowned self] in try! self.setAvatarToUser($0, avatar: nil) })
         self.present(alert, animated: true)
@@ -61,7 +61,7 @@ fileprivate extension ViewController {
     func setAvatarToUser(_ user: User, avatar: UIImage?) throws {
         var user = user
         user.avatar = avatar.flatMap { $0.jpegData(compressionQuality: 0.1) }
-        try percy.update([user])
+        try percy.update(user)
     }
     
     @IBAction func addUserAction(_ sender: UIBarButtonItem) {

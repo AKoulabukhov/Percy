@@ -24,28 +24,20 @@ public final class Transaction {
         self.percy = percy
     }
     
-    public func create<Model: Persistable>(entities: [Model]) {
-        self.operations.append { [unowned percy] context in
-            try percy.create(entities, in: context)
-        }
+    public func create<Model: Persistable>(entities: Model...) {
+        self.operations.append { [unowned percy] in try percy.create(entities, in: $0) }
     }
     
-    public func update<Model: Persistable>(entities: [Model]) {
-        self.operations.append { [unowned percy] context in
-            try percy.update(entities, in: context)
-        }
+    public func update<Model: Persistable>(entities: Model...) {
+        self.operations.append { [unowned percy] in try percy.update(entities, in: $0) }
     }
     
-    public func upsert<Model: Persistable>(entities: [Model]) {
-        self.operations.append { [unowned percy] context in
-            try percy.upsert(entities, in: context)
-        }
+    public func upsert<Model: Persistable>(entities: Model...) {
+        self.operations.append { [unowned percy] in try percy.upsert(entities, in: $0) }
     }
     
     public func delete<Model: Persistable>(entities: [Model]) {
-        self.operations.append { [unowned percy] context in
-            try percy.delete(entities, in: context)
-        }
+        self.operations.append { [unowned percy] in try percy.delete(entities, in: $0) }
     }
     
     public func commit() throws {

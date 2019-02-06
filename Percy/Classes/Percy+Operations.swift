@@ -22,12 +22,12 @@ extension Percy {
     
     // MARK: Sync operations
     
-    public func getEntities<Model: Persistable>(predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?) -> [Model] {
+    public func getEntities<Model: Persistable>(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil) -> [Model] {
         let request = fetchRequest(for: Model.self, predicate: predicate, sortDescriptors: sortDescriptors, fetchLimit: fetchLimit)
         return self.performSync { c in try c.fetch(request).map { try Model(object: $0, in: OperationContext(context: c, in: self)) } } ?? []
     }
     
-    public func count<Model: Persistable>(for object: Model.Type, predicate: NSPredicate?) -> Int {
+    public func count<Model: Persistable>(for object: Model.Type, predicate: NSPredicate? = nil) -> Int {
         let request = fetchRequest(for: Model.self, predicate: predicate)
         return self.performSync { try $0.count(for: request) } ?? 0
     }
@@ -42,19 +42,35 @@ extension Percy {
         return performSync { return first(predicate: predicate, sortDescriptors: sortDescriptors, in: $0) } ?? nil
     }
     
-    public func create<Model: Persistable>(_ entities: [Model]) throws {
+    public func create<Model: Persistable>(_ entity: Model) throws {
+        try performWithSave { try create(entity, in: $0)}
+    }
+    
+    public func create<Models>(_ entities: Models) throws where Models: Sequence, Models.Element: Persistable {
         try performWithSave { try create(entities, in: $0)}
     }
     
-    public func update<Model: Persistable>(_ entities: [Model]) throws {
+    public func update<Model: Persistable>(_ entity: Model) throws {
+        try performWithSave { try update(entity, in: $0)}
+    }
+    
+    public func update<Models>(_ entities: Models) throws where Models: Sequence, Models.Element: Persistable {
         try performWithSave { try update(entities, in: $0)}
     }
     
-    public func upsert<Model: Persistable>(_ entities: [Model]) throws {
+    public func upsert<Model: Persistable>(_ entity: Model) throws {
+        try performWithSave { try upsert(entity, in: $0) }
+    }
+    
+    public func upsert<Models>(_ entities: Models) throws where Models: Sequence, Models.Element: Persistable {
         try performWithSave { try upsert(entities, in: $0) }
     }
     
-    public func delete<Model: Persistable>(_ entities: [Model]) throws {
+    public func delete<Model: Persistable>(_ entity: Model) throws {
+        try performWithSave { try delete(entity, in: $0) }
+    }
+    
+    public func delete<Models>(_ entities: Models) throws where Models: Sequence, Models.Element: Persistable {
         try performWithSave { try delete(entities, in: $0) }
     }
     
@@ -80,19 +96,35 @@ extension Percy {
     
     // MARK: Async operations
     
-    public func create<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+    public func create<Model: Persistable>(_ entity: Model, completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.create(entity, in: $0)}, completion: completion)
+    }
+    
+    public func create<Models>(_ entities: Models, completion: PercyResultHandler<Void>?) where Models: Sequence, Models.Element: Persistable {
         performWithSave({ try self.create(entities, in: $0)}, completion: completion)
     }
     
-    public func update<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+    public func update<Model: Persistable>(_ entity: Model, completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.update(entity, in: $0)}, completion: completion)
+    }
+    
+    public func update<Models>(_ entities: Models, completion: PercyResultHandler<Void>?) where Models: Sequence, Models.Element: Persistable {
         performWithSave({ try self.update(entities, in: $0)}, completion: completion)
     }
     
-    public func upsert<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+    public func upsert<Model: Persistable>(_ entity: Model, completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.upsert(entity, in: $0) }, completion: completion)
+    }
+    
+    public func upsert<Models>(_ entities: Models, completion: PercyResultHandler<Void>?) where Models: Sequence, Models.Element: Persistable {
         performWithSave({ try self.upsert(entities, in: $0) }, completion: completion)
     }
     
-    public func delete<Model: Persistable>(_ entities: [Model], completion: PercyResultHandler<Void>?) {
+    public func delete<Model: Persistable>(_ entity: Model, completion: PercyResultHandler<Void>?) {
+        performWithSave({ try self.delete(entity, in: $0) }, completion: completion)
+    }
+    
+    public func delete<Models>(_ entities: Models, completion: PercyResultHandler<Void>?) where Models: Sequence, Models.Element: Persistable {
         performWithSave({ try self.delete(entities, in: $0) }, completion: completion)
     }
     
@@ -136,33 +168,43 @@ extension Percy {
             .flatMap {  try? Model(object: $0, in: OperationContext(context: context, in: self)) }
     }
     
-    func create<Model: Persistable>(_ entities: [Model], in context: NSManagedObjectContext) throws {
-        try entities.forEach { try $0.toObject(in: OperationContext(context: context, in: self)) }
+    func create<Model: Persistable>(_ entity: Model, in context: NSManagedObjectContext) throws {
+        try entity.toObject(in: OperationContext(context: context, in: self))
     }
     
-    func update<Model: Persistable>(_ entities: [Model], in context: NSManagedObjectContext) throws {
-        try entities.forEach { entity in
-            guard let existedObject = firstObject(of: Model.self, context: context, predicate: entity.associatedObjectPredicate) else { return }
+    func create<Models>(_ entities: Models, in context: NSManagedObjectContext) throws where Models: Sequence, Models.Element: Persistable {
+        try entities.forEach { try create($0, in: context) }
+    }
+    
+    func update<Model: Persistable>(_ entity: Model, in context: NSManagedObjectContext) throws {
+        guard let existedObject = firstObject(of: Model.self, context: context, predicate: entity.associatedObjectPredicate) else { return }
+        try entity.fill(object: existedObject, in: OperationContext(context: context, in: self))
+    }
+    
+    func update<Models>(_ entities: Models, in context: NSManagedObjectContext) throws where Models: Sequence, Models.Element: Persistable {
+        try entities.forEach { try update($0, in: context) }
+    }
+    
+    func upsert<Model: Persistable>(_ entity: Model, in context: NSManagedObjectContext) throws {
+        if let existedObject = firstObject(of: Model.self, context: context, predicate: entity.associatedObjectPredicate) {
             try entity.fill(object: existedObject, in: OperationContext(context: context, in: self))
+        } else {
+            try entity.toObject(in: OperationContext(context: context, in: self))
         }
     }
     
-    func upsert<Model: Persistable>(_ entities: [Model], in context: NSManagedObjectContext) throws {
-        try entities.forEach { entity in
-            if let existedObject = self.firstObject(of: Model.self, context: context, predicate: entity.associatedObjectPredicate) {
-                try entity.fill(object: existedObject, in: OperationContext(context: context, in: self))
-            } else {
-                try entity.toObject(in: OperationContext(context: context, in: self))
-            }
-        }
+    func upsert<Models>(_ entities: Models, in context: NSManagedObjectContext) throws where Models: Sequence, Models.Element: Persistable {
+        try entities.forEach { try upsert($0, in: context) }
     }
     
-    func delete<Model: Persistable>(_ entities: [Model], in context: NSManagedObjectContext) throws {
-        try entities.forEach { entity in
-            guard let existedObject = firstObject(of: Model.self, context: context, predicate: entity.associatedObjectPredicate) else { return }
-            try entity.onDelete(object: existedObject, in: OperationContext(context: context, in: self))
-            context.delete(existedObject)
-        }
+    func delete<Model: Persistable>(_ entity: Model, in context: NSManagedObjectContext) throws {
+        guard let existedObject = firstObject(of: Model.self, context: context, predicate: entity.associatedObjectPredicate) else { return }
+        try entity.onDelete(object: existedObject, in: OperationContext(context: context, in: self))
+        context.delete(existedObject)
+    }
+    
+    func delete<Models>(_ entities: Models, in context: NSManagedObjectContext) throws where Models: Sequence, Models.Element: Persistable {
+        try entities.forEach { try delete($0, in: context) }
     }
     
 }

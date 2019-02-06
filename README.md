@@ -56,7 +56,7 @@ let percy = try! Percy(dataModelName: "MyDataModel")
 
 // Save post
 let post = Post(id: 1, text: "My new note")
-try! percy.upsert([post])
+try! percy.upsert(post)
 
 // Retrieve saved post
 let predicate = Post.makeAssociatedObjectPredicate(id: 1)
