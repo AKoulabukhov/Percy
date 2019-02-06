@@ -24,35 +24,35 @@ public final class Transaction {
         self.percy = percy
     }
     
-    public func create<Model: Persistable>(entity: Model) {
+    public func create<Model: Persistable>(_ entity: Model) {
         self.operations.append { [unowned percy] in try percy.create(entity, in: $0) }
     }
     
-    public func create<Models>(entities: Models) where Models: Sequence, Models.Element: Persistable {
+    public func create<Models>(_ entities: Models) where Models: Sequence, Models.Element: Persistable {
         self.operations.append { [unowned percy] in try percy.create(entities, in: $0) }
     }
     
-    public func update<Model: Persistable>(entity: Model...) {
+    public func update<Model: Persistable>(_ entity: Model...) {
         self.operations.append { [unowned percy] in try percy.update(entity, in: $0) }
     }
     
-    public func update<Models>(entities: Models) where Models: Sequence, Models.Element: Persistable {
+    public func update<Models>(_ entities: Models) where Models: Sequence, Models.Element: Persistable {
         self.operations.append { [unowned percy] in try percy.update(entities, in: $0) }
     }
     
-    public func upsert<Model: Persistable>(entity: Model) {
+    public func upsert<Model: Persistable>(_ entity: Model) {
         self.operations.append { [unowned percy] in try percy.upsert(entity, in: $0) }
     }
     
-    public func upsert<Models>(entities: Models) where Models: Sequence, Models.Element: Persistable {
+    public func upsert<Models>(_ entities: Models) where Models: Sequence, Models.Element: Persistable {
         self.operations.append { [unowned percy] in try percy.upsert(entities, in: $0) }
     }
     
-    public func delete<Model: Persistable>(entity: Model) {
+    public func delete<Model: Persistable>(_ entity: Model) {
         self.operations.append { [unowned percy] in try percy.delete(entity, in: $0) }
     }
     
-    public func delete<Models>(entities: Models) where Models: Sequence, Models.Element: Persistable {
+    public func delete<Models>(_ entities: Models) where Models: Sequence, Models.Element: Persistable {
         self.operations.append { [unowned percy] in try percy.delete(entities, in: $0) }
     }
     
