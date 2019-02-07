@@ -23,12 +23,9 @@ public final class ChangeObserver<T: Persistable> {
     
     private unowned let percy: Percy
     private let filter: NSPredicate?
-    
     private var identifiers = Set<T.IDType>()
     
-    public var onStart: (() -> Void)?
-    public var onChange: ((Change) -> Void)?
-    public var onFinish: (() -> Void)?
+    public var onChanges: (([Change]) -> Void)?
     
     init(context: NSManagedObjectContext, filter: NSPredicate?, in percy: Percy) {
         self.filter = filter
@@ -51,15 +48,9 @@ public final class ChangeObserver<T: Persistable> {
     }
     
     func handleNotificationUserInfo(_ userInfo: [AnyHashable: Any], operationContext: OperationContext) {
-        var hasChanges: Bool = false
+        var changes = [Change]()
         
-        func handleChange(_ change: Change) {
-            if !hasChanges {
-                hasChanges = true
-                onStart?()
-            }
-            onChange?(change)
-        }
+        let handleChange: (Change) -> Void = { changes.append($0) }
         
         PercyChangeType.allCases.forEach { changeType in
             guard let objects = userInfo[changeType] else { return }
@@ -77,8 +68,8 @@ public final class ChangeObserver<T: Persistable> {
             
         }
         
-        if hasChanges {
-            onFinish?()
+        if !changes.isEmpty {
+            onChanges?(changes)
         }
     }
     

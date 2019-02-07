@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     func setupObserver() {
         // Observe avatar updates
         observer = percy.makeObserver()
-        observer?.onChange = { print($0) }
+        observer?.onChanges = { $0.forEach { print($0) } }
     }
     
     func refreshFooter() {

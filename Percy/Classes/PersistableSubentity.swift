@@ -65,9 +65,9 @@ public final class Subentity<SubentityType: Persistable> {
         let newValue = value
 
         switch (oldValue, newValue) {
-        case (_?, let new?): try operation.percy.update([new], in: operation.context)
-        case (let current?, nil): try operation.percy.delete([current], in: operation.context)
-        case (nil, let new?): try operation.percy.create([new], in: operation.context)
+        case (_?, let new?): try operation.percy.update(new, in: operation.context)
+        case (let current?, nil): try operation.percy.delete(current, in: operation.context)
+        case (nil, let new?): try operation.percy.create(new, in: operation.context)
         case (nil, nil): break
         }
         
@@ -91,7 +91,7 @@ public final class Subentity<SubentityType: Persistable> {
     public func delete(in operation: OperationContext) throws {
         let predicate = Subentity<SubentityType>.makeSubentityPredicate(id: id)
         guard let value: SubentityType = operation.percy.first(predicate: predicate, in: operation.context) else { return }
-        try operation.percy.delete([value], in: operation.context)
+        try operation.percy.delete(value, in: operation.context)
     }
     
 }
