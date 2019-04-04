@@ -38,8 +38,8 @@ class ViewController: UIViewController {
     }
     
     func refreshFooter() {
-        self.tableView.footerView(forSection: 0)?.textLabel?.text = self.tableView(self.tableView, titleForFooterInSection: 0)
-        self.tableView.footerView(forSection: 0)?.sizeToFit()
+        tableView.footerView(forSection: 0)?.textLabel?.text = tableView(tableView, titleForFooterInSection: 0)
+        tableView.footerView(forSection: 0)?.sizeToFit()
     }
     
 }
@@ -55,7 +55,7 @@ fileprivate extension ViewController {
                     onDelete: { try! percy.delete($0) },
                     onAddAvatar: { [unowned self] in try! self.setAvatarToUser($0, avatar: #imageLiteral(resourceName: "Avatar")) },
                     onRemoveAvatar: { [unowned self] in try! self.setAvatarToUser($0, avatar: nil) })
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
     
     func setAvatarToUser(_ user: User, avatar: UIImage?) throws {
@@ -70,12 +70,17 @@ fileprivate extension ViewController {
     
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
         // Drop livelist & observer to prevent us from handling every deleted user
-        self.liveList = nil
-        self.observer = nil
-        try! percy.dropEntities(ofType: User.self)
-        self.setupLiveList()
-        self.setupObserver()
-        self.tableView.reloadData()
+        liveList = nil
+        observer = nil
+        try! percy.delete(entitiesOfType: User.self, predicate: nil)
+        setupLiveList()
+        setupObserver()
+        tableView.reloadData()
+    }
+    
+    @IBAction func redoAction(_ sender: UIBarButtonItem) {
+        let predicate = NSPredicate(format: "email BEGINSWITH %@", "a")
+        try! percy.delete(entitiesOfType: User.self, predicate: predicate)
     }
     
     @IBAction func refreshAction(_ sender: UIBarButtonItem) {

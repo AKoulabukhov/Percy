@@ -24,12 +24,12 @@ extension Percy {
     
     public func getEntities<Model: Persistable>(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, fetchLimit: Int? = nil) -> [Model] {
         let request = fetchRequest(for: Model.self, predicate: predicate, sortDescriptors: sortDescriptors, fetchLimit: fetchLimit)
-        return self.performSync { c in try c.fetch(request).map { try Model(object: $0, in: OperationContext(context: c, in: self)) } } ?? []
+        return performSync { c in try c.fetch(request).map { try Model(object: $0, in: OperationContext(context: c, in: self)) } } ?? []
     }
     
     public func count<Model: Persistable>(for object: Model.Type, predicate: NSPredicate? = nil) -> Int {
         let request = fetchRequest(for: Model.self, predicate: predicate)
-        return self.performSync { try $0.count(for: request) } ?? 0
+        return performSync { try $0.count(for: request) } ?? 0
     }
     
     public func isPersisted<Model: Persistable>(_ object: Model) -> Bool {
@@ -74,6 +74,11 @@ extension Percy {
         try performWithSave { try delete(entities, in: $0) }
     }
     
+    /// Drops all objects of given entity (or only predicate-matching if predicate set)
+    public func delete<Model: Persistable>(entitiesOfType type: Model.Type, predicate: NSPredicate?) throws {
+        try performWithSave { try delete(entitiesOfType: type, predicate: predicate, in: $0) }
+    }
+    
     public func getIdentifiers<Model: Persistable>(for type: Model.Type, predicate: NSPredicate?, sortDescriptors: [NSSortDescriptor]?, fetchLimit: Int?) -> [Model.IDType] {
         let request = NSFetchRequest<NSDictionary>(entityName: Model.Object.entityName)
         request.predicate = predicate
@@ -81,17 +86,7 @@ extension Percy {
         fetchLimit.flatMap { request.fetchLimit = $0 }
         request.resultType = .dictionaryResultType
         request.propertiesToFetch = [Model.identifierKey]
-        return self.performSync { try $0.fetch(request).compactMap { $0[Model.identifierKey] as? Model.IDType } } ?? []
-    }
-    
-    /// Drops all objects of given entity
-    public func dropEntities<Model: Persistable>(ofType type: Model.Type) throws {
-        let request = fetchRequest(for: Model.self)
-        request.includesPropertyValues = false
-        try performWithSave { context in
-            let objects = try context.fetch(request)
-            objects.forEach { context.delete($0) }
-        }
+        return performSync { try $0.fetch(request).compactMap { $0[Model.identifierKey] as? Model.IDType } } ?? []
     }
     
     // MARK: Async operations
@@ -128,14 +123,9 @@ extension Percy {
         performWithSave({ try self.delete(entities, in: $0) }, completion: completion)
     }
     
-    /// Drops all objects of given entity
-    public func dropEntities<Model: Persistable>(ofType type: Model.Type, completion: PercyResultHandler<Void>?) {
-        let request = fetchRequest(for: Model.self)
-        request.includesPropertyValues = false
-        performWithSave({ context in
-            let objects = try context.fetch(request)
-            objects.forEach { context.delete($0) }
-        }, completion: completion)
+    /// Drops all objects of given entity (or only predicate-matching if predicate set)
+    public func delete<Model: Persistable>(entitiesOfType type: Model.Type, predicate: NSPredicate? = nil, completion: PercyResultHandler<Void>?) throws {
+        performWithSave({ try self.delete(entitiesOfType: type, predicate: predicate, in: $0) }, completion: completion)
     }
     
     // MARK: Private methods
@@ -165,7 +155,7 @@ extension Percy {
     
     func first<Model: Persistable>(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, in context: NSManagedObjectContext) -> Model? {
         return firstObject(of: Model.self, context: context, predicate: predicate, sortDescriptors: sortDescriptors)
-            .flatMap {  try? Model(object: $0, in: OperationContext(context: context, in: self)) }
+            .flatMap { try? Model(object: $0, in: OperationContext(context: context, in: self)) }
     }
     
     func create<Model: Persistable>(_ entity: Model, in context: NSManagedObjectContext) throws {
@@ -205,6 +195,15 @@ extension Percy {
     
     func delete<Models>(_ entities: Models, in context: NSManagedObjectContext) throws where Models: Sequence, Models.Element: Persistable {
         try entities.forEach { try delete($0, in: context) }
+    }
+    
+    func delete<Model: Persistable>(entitiesOfType type: Model.Type, predicate: NSPredicate? = nil, in context: NSManagedObjectContext) throws {
+        let request = fetchRequest(for: Model.self)
+        request.predicate = predicate
+        request.includesPropertyValues = false
+        try context.fetch(request).forEach {
+            context.delete($0)
+        }
     }
     
 }

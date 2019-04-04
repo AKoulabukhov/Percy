@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   
   s.name             = 'Percy'
   s.version          = '0.1.0'
-  s.swift_version    = '4.2'
+  s.swift_version    = '5.0'
   s.summary          = 'An elegant CoreData wrapper.'
   s.description      = <<-DESC
                         Percy is abstraction over CoreData stack.
