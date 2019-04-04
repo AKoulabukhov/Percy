@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hXE-Bg-tSB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hXE-Bg-tSB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,11 +39,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="0Mm-Em-KZP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="9Lk-a6-QSY">
-                            <connections>
-                                <action selector="trashAction:" destination="vXZ-lx-hvc" id="p22-BS-9kE"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="trash" id="9Lk-a6-QSY">
+                                <connections>
+                                    <action selector="trashAction:" destination="vXZ-lx-hvc" id="p22-BS-9kE"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="reply" id="Csh-0W-rpO">
+                                <connections>
+                                    <action selector="redoAction:" destination="vXZ-lx-hvc" id="uAv-DB-SIQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="W3A-jW-kLg">
                                 <connections>
