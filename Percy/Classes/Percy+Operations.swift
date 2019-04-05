@@ -124,7 +124,7 @@ extension Percy {
     }
     
     /// Drops all objects of given entity (or only predicate-matching if predicate set)
-    public func delete<Model: Persistable>(entitiesOfType type: Model.Type, predicate: NSPredicate? = nil, completion: PercyResultHandler<Void>?) throws {
+    public func delete<Model: Persistable>(entitiesOfType type: Model.Type, predicate: NSPredicate? = nil, completion: PercyResultHandler<Void>?) {
         performWithSave({ try self.delete(entitiesOfType: type, predicate: predicate, in: $0) }, completion: completion)
     }
     
