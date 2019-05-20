@@ -57,9 +57,9 @@
                                     <action selector="addUserAction:" destination="vXZ-lx-hvc" id="lYg-G5-vsB"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="4q3-lN-oFn">
+                            <barButtonItem systemItem="compose" id="EOf-K9-055">
                                 <connections>
-                                    <action selector="refreshAction:" destination="vXZ-lx-hvc" id="B0i-gc-7wW"/>
+                                    <action selector="composeAction:" destination="vXZ-lx-hvc" id="l96-H8-h5B"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

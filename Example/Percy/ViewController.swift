@@ -78,12 +78,22 @@ fileprivate extension ViewController {
         tableView.reloadData()
     }
     
-    @IBAction func redoAction(_ sender: UIBarButtonItem) {
+    @IBAction func composeAction(_ sender: UIBarButtonItem) {
+        let actionsAlert = UIAlertController(title: "What to do?", message: "Select an action to continue", preferredStyle: .actionSheet)
+        actionsAlert.popoverPresentationController?.barButtonItem = sender
+        actionsAlert.addAction(.init(title: "Remove users with \"a*\" Email", style: .default) { [weak self] _ in self?.removeAEmailUsers() })
+        actionsAlert.addAction(.init(title: "Create 5 random users in background", style: .default) { [weak self] _ in self?.createNewUsersInBG() })
+        actionsAlert.addAction(.init(title: "Create user in another Percy and merge", style: .default) { [weak self] _ in self?.createNewUserInAnotherPercyInstance() })
+        actionsAlert.addAction(.init(title: "Cancel", style: .cancel))
+        present(actionsAlert, animated: true)
+    }
+    
+    func removeAEmailUsers() {
         let predicate = NSPredicate(format: "email BEGINSWITH %@", "a")
         try! percy.delete(entitiesOfType: User.self, predicate: predicate)
     }
     
-    @IBAction func refreshAction(_ sender: UIBarButtonItem) {
+    func createNewUsersInBG() {
         // Background creation
         DispatchQueue.global().async { [percy] in
             let users = (0..<5).map { _ in User(id: .randomId(), email: .randomEmail()) }
@@ -94,6 +104,19 @@ fileprivate extension ViewController {
                 }
             }
         }
+    }
+    
+    static var tempPercy: (Percy, Percy.RemoteStoreMerger)?
+    
+    func createNewUserInAnotherPercyInstance() {
+        let newPercy = try! Percy(dataModelName: "Model")
+        let newPercyMerger = newPercy.makeRemoteStoreMerger()
+        newPercyMerger.onBatchFormed = {
+            ViewController.tempPercy = nil
+            percy.makeRemoteStoreMerger().mergeBatch($0)
+        }
+        ViewController.tempPercy = (newPercy, newPercyMerger)
+        try! newPercy.create(User(id: .randomId(), email: .randomEmail()))
     }
     
 }

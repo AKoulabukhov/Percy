@@ -18,7 +18,7 @@ public final class Percy {
      Initialize a new store
      
      - throws:
-     And error of type `PercyError`
+     Error of type `PercyError`
      
      - parameters:
      - dataModelName: Name of the CoreData model WITHOUT `.momd` extension
