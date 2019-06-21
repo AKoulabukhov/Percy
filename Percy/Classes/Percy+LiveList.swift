@@ -9,14 +9,15 @@ import Foundation
 import CoreData
 
 extension Percy {
-    public func makeLiveList<T>(filter: NSPredicate? = nil, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> {
-        return LiveList(context: mainContext, filter: filter, sorting: sorting, in: self)
+    public func makeLiveList<T>(predicate: NSPredicate? = nil, sorting: LiveList<T>.Sorting? = nil, filter: LiveList<T>.EntityFilter? = nil) -> LiveList<T> {
+        return LiveList(context: mainContext, objectFilter: predicate, entityFilter: filter, sorting: sorting, in: self)
     }
 }
 
 public final class LiveList<T: Persistable> {
     
     public typealias Sorting = (T, T) -> Bool
+    public typealias EntityFilter = (T) -> Bool
     
     public enum Change {
         case deleted(T, index: Int)
@@ -25,7 +26,8 @@ public final class LiveList<T: Persistable> {
     }
     
     private unowned let percy: Percy
-    private let filter: NSPredicate?
+    private let objectFilter: NSPredicate?
+    private let entityFilter: EntityFilter?
     private let sorting: Sorting?
     
     public private(set) var items = [T]()
@@ -34,8 +36,9 @@ public final class LiveList<T: Persistable> {
     public var onChange: ((Change) -> Void)?
     public var onFinish: (() -> Void)?
     
-    init(context: NSManagedObjectContext, filter: NSPredicate?, sorting: Sorting?, in percy: Percy) {
-        self.filter = filter
+    init(context: NSManagedObjectContext, objectFilter: NSPredicate?, entityFilter: EntityFilter?, sorting: Sorting?, in percy: Percy) {
+        self.objectFilter = objectFilter
+        self.entityFilter = entityFilter
         self.sorting = sorting
         self.percy = percy
         reloadData()
@@ -46,8 +49,9 @@ public final class LiveList<T: Persistable> {
     }
     
     public func reloadData() {
-        let items: [T] = percy.getEntities(predicate: filter, sortDescriptors: nil, fetchLimit: nil)
-        self.items = sorting.flatMap { items.sorted(by: $0) } ?? items
+        let items: [T] = percy.getEntities(predicate: objectFilter, sortDescriptors: nil, fetchLimit: nil)
+        let filtredItems = entityFilter.flatMap { items.filter($0) } ?? items
+        self.items = sorting.flatMap { filtredItems.sorted(by: $0) } ?? filtredItems
     }
     
     @objc private func managedObjectContextObjectsDidChange(notification: Notification) {
@@ -72,6 +76,10 @@ public final class LiveList<T: Persistable> {
             
             objects.forEach {
                 guard let entity = makeEntity($0, context: operationContext) else { return }
+                
+                if let entityFilter = self.entityFilter, !entityFilter(entity) {
+                   return
+                }
                 
                 switch changeType {
                 case .deleted: handleDeletion(entity, changeHandler: handleChange)
@@ -103,26 +111,40 @@ public final class LiveList<T: Persistable> {
     }
 
     private func handleUpdate(_ entity: T, object: NSManagedObject, changeHandler: (Change) -> Void) {
-        if let filter = self.filter {
-            let currentObjectIndex = items.firstIndex { $0.id == entity.id }
-            let isNewObjectConformsFilter = filter.evaluate(with: object)
-            switch (currentObjectIndex, isNewObjectConformsFilter) {
-            case (let index?, true):
-                handleUpdateAtIndex(entity, index: index, changeHandler: changeHandler)
-            case (let index?, false):
-                let deletedEntity = items[index]
-                items.remove(at: index)
-                changeHandler(.deleted(deletedEntity, index: index))
-            case (nil, true):
-                insertEntity(entity, changeHandler: changeHandler)
-            case (nil, false):
-                break
-            }
+        guard let currentObjectIndex = items.firstIndex(where: { $0.id == entity.id }) else { return }
+        
+        if let isNewObjectConformsFilter = self.tryEvaluateFilters(entity: entity, object: object) {
+            handleUpdateForEntity(entity, at: currentObjectIndex, isNewObjectConformsFilter: isNewObjectConformsFilter, changeHandler: changeHandler)
+        } else {
+            handleUpdateAtIndex(entity, index: currentObjectIndex, changeHandler: changeHandler)
         }
-        else {
-            if let index = self.items.firstIndex(where: { $0.id == entity.id }) {
-                handleUpdateAtIndex(entity, index: index, changeHandler: changeHandler)
-            }
+    }
+    
+    private func tryEvaluateFilters(entity: T, object: NSManagedObject) -> Bool? {
+        switch (self.objectFilter, self.entityFilter) {
+        case (let objectFilter?, let entityFilter?):
+            return objectFilter.evaluate(with: object) && entityFilter(entity)
+        case (let objectFilter?, nil):
+            return objectFilter.evaluate(with: object)
+        case (nil, let entityFilter?):
+            return entityFilter(entity)
+        case (nil, nil):
+            return nil
+        }
+    }
+    
+    private func handleUpdateForEntity(_ entity: T, at currentObjectIndex: Int?, isNewObjectConformsFilter: Bool, changeHandler: (Change) -> Void) {
+        switch (currentObjectIndex, isNewObjectConformsFilter) {
+        case (let index?, true):
+            handleUpdateAtIndex(entity, index: index, changeHandler: changeHandler)
+        case (let index?, false):
+            let deletedEntity = items[index]
+            items.remove(at: index)
+            changeHandler(.deleted(deletedEntity, index: index))
+        case (nil, true):
+            insertEntity(entity, changeHandler: changeHandler)
+        case (nil, false):
+            return
         }
     }
     
@@ -142,13 +164,12 @@ public final class LiveList<T: Persistable> {
     }
 
     private func handleInsert(_ entity: T, object: NSManagedObject, changeHandler: (Change) -> Void){
-        if let filter = self.filter {
-            if filter.evaluate(with: object) {
-                self.insertEntity(entity, changeHandler: changeHandler)
+        if let isNewObjectConformsFilters = tryEvaluateFilters(entity: entity, object: object) {
+            if isNewObjectConformsFilters {
+                insertEntity(entity, changeHandler: changeHandler)
             }
-        }
-        else {
-            self.insertEntity(entity, changeHandler: changeHandler)
+        } else {
+            insertEntity(entity, changeHandler: changeHandler)
         }
     }
     
