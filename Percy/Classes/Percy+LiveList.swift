@@ -77,10 +77,6 @@ public final class LiveList<T: Persistable> {
             objects.forEach {
                 guard let entity = makeEntity($0, context: operationContext) else { return }
                 
-                if let entityFilter = self.entityFilter, !entityFilter(entity) {
-                   return
-                }
-                
                 switch changeType {
                 case .deleted: handleDeletion(entity, changeHandler: handleChange)
                 case .updated: handleUpdate(entity, object: $0, changeHandler: handleChange)
