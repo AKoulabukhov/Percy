@@ -9,9 +9,18 @@ import Foundation
 import CoreData
 
 extension Percy {
-    public func makeLiveList<T>(filter: NSPredicate? = nil, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> {
+    public func makeLiveList<T>(predicate: NSPredicate? = nil, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> {
+        return LiveList(context: mainContext, filter: predicate.flatMap { PredicateFilter(predicate: $0) }, sorting: sorting, in: self)
+    }
+    public func makeLiveList<T, F: LiveListFilter>(filter: F, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> where F.Entity == T {
         return LiveList(context: mainContext, filter: filter, sorting: sorting, in: self)
     }
+}
+
+public protocol LiveListFilter {
+    associatedtype Entity: Persistable
+    func getFilteredEntities(from percy: Percy) -> [Entity]
+    func evaluate(with entity: Entity, sourceObject object: NSManagedObject) -> Bool
 }
 
 public final class LiveList<T: Persistable> {
@@ -25,7 +34,8 @@ public final class LiveList<T: Persistable> {
     }
     
     private unowned let percy: Percy
-    private let filter: NSPredicate?
+    private let fetcher: ((Percy) -> [T])?
+    private let filter: ((T, NSManagedObject) -> Bool)?
     private let sorting: Sorting?
     
     public private(set) var items = [T]()
@@ -34,8 +44,9 @@ public final class LiveList<T: Persistable> {
     public var onChange: ((Change) -> Void)?
     public var onFinish: (() -> Void)?
     
-    init(context: NSManagedObjectContext, filter: NSPredicate?, sorting: Sorting?, in percy: Percy) {
-        self.filter = filter
+    init<Filter: LiveListFilter>(context: NSManagedObjectContext, filter: Filter?, sorting: Sorting?, in percy: Percy) where Filter.Entity == T {
+        self.fetcher = filter?.fetcher
+        self.filter = filter?.filter
         self.sorting = sorting
         self.percy = percy
         reloadData()
@@ -46,7 +57,7 @@ public final class LiveList<T: Persistable> {
     }
     
     public func reloadData() {
-        let items: [T] = percy.getEntities(predicate: filter, sortDescriptors: nil, fetchLimit: nil)
+        let items: [T] = fetcher?(percy) ?? percy.getEntities(predicate: nil, sortDescriptors: nil, fetchLimit: nil)
         self.items = sorting.flatMap { items.sorted(by: $0) } ?? items
     }
     
@@ -105,7 +116,7 @@ public final class LiveList<T: Persistable> {
     private func handleUpdate(_ entity: T, object: NSManagedObject, changeHandler: (Change) -> Void) {
         if let filter = self.filter {
             let currentObjectIndex = items.firstIndex { $0.id == entity.id }
-            let isNewObjectConformsFilter = filter.evaluate(with: object)
+            let isNewObjectConformsFilter = filter(entity, object)
             switch (currentObjectIndex, isNewObjectConformsFilter) {
             case (let index?, true):
                 handleUpdateAtIndex(entity, index: index, changeHandler: changeHandler)
@@ -143,7 +154,7 @@ public final class LiveList<T: Persistable> {
 
     private func handleInsert(_ entity: T, object: NSManagedObject, changeHandler: (Change) -> Void){
         if let filter = self.filter {
-            if filter.evaluate(with: object) {
+            if filter(entity, object) {
                 self.insertEntity(entity, changeHandler: changeHandler)
             }
         }
@@ -166,6 +177,37 @@ public final class LiveList<T: Persistable> {
     
     func indexToInsertEntity(_ entity: T, sorting: Sorting) -> Int {
         return items.firstIndex { !sorting($0, entity) } ?? items.count
+    }
+    
+}
+
+// MARK: - Type erasure
+
+fileprivate extension LiveListFilter {
+    var fetcher: (Percy) -> [Entity] {
+        return { self.getFilteredEntities(from: $0) }
+    }
+    var filter: (Entity, NSManagedObject) -> Bool {
+        return { self.evaluate(with: $0, sourceObject: $1) }
+    }
+}
+
+// MARK: - Default predicate filter
+
+fileprivate final class PredicateFilter<T: Persistable>: LiveListFilter {
+    
+    let predicate: NSPredicate
+    
+    init(predicate: NSPredicate) {
+        self.predicate = predicate
+    }
+    
+    func getFilteredEntities(from percy: Percy) -> [T] {
+        return percy.getEntities(predicate: predicate, sortDescriptors: nil, fetchLimit: nil)
+    }
+    
+    func evaluate(with entity: T, sourceObject object: NSManagedObject) -> Bool {
+        return predicate.evaluate(with: object)
     }
     
 }
