@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension Percy {
-    public func makeLiveList<T>(filter: NSPredicate? = nil, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> {
+    public func makeLiveList<T>(filter: Filter<T>? = nil, sorting: LiveList<T>.Sorting? = nil) -> LiveList<T> {
         return LiveList(context: mainContext, filter: filter, sorting: sorting, in: self)
     }
 }
@@ -25,7 +25,7 @@ public final class LiveList<T: Persistable> {
     }
     
     private unowned let percy: Percy
-    private let filter: NSPredicate?
+    private let filter: Percy.Filter<T>?
     private let sorting: Sorting?
     
     public private(set) var items = [T]()
@@ -34,7 +34,7 @@ public final class LiveList<T: Persistable> {
     public var onChange: ((Change) -> Void)?
     public var onFinish: (() -> Void)?
     
-    init(context: NSManagedObjectContext, filter: NSPredicate?, sorting: Sorting?, in percy: Percy) {
+    init(context: NSManagedObjectContext, filter: Percy.Filter<T>?, sorting: Sorting?, in percy: Percy) {
         self.filter = filter
         self.sorting = sorting
         self.percy = percy
@@ -46,8 +46,10 @@ public final class LiveList<T: Persistable> {
     }
     
     public func reloadData() {
-        let items: [T] = percy.getEntities(predicate: filter, sortDescriptors: nil, fetchLimit: nil)
-        self.items = sorting.flatMap { items.sorted(by: $0) } ?? items
+        let items: [T] = percy.getEntities(predicate: filter?.predicate, sortDescriptors: nil, fetchLimit: nil)
+        // TODO: Next line Isn't correct for different Filter.joiner
+        let filteredItems = (filter?.block).flatMap { items.filter($0) } ?? items
+        self.items = sorting.flatMap { filteredItems.sorted(by: $0) } ?? filteredItems
     }
     
     @objc private func managedObjectContextObjectsDidChange(notification: Notification) {
@@ -105,7 +107,7 @@ public final class LiveList<T: Persistable> {
     private func handleUpdate(_ entity: T, object: NSManagedObject, changeHandler: (Change) -> Void) {
         if let filter = self.filter {
             let currentObjectIndex = items.firstIndex { $0.id == entity.id }
-            let isNewObjectConformsFilter = filter.evaluate(with: object)
+            let isNewObjectConformsFilter = filter.evaluate(object: object, entity: entity)
             switch (currentObjectIndex, isNewObjectConformsFilter) {
             case (let index?, true):
                 handleUpdateAtIndex(entity, index: index, changeHandler: changeHandler)
@@ -143,7 +145,7 @@ public final class LiveList<T: Persistable> {
 
     private func handleInsert(_ entity: T, object: NSManagedObject, changeHandler: (Change) -> Void){
         if let filter = self.filter {
-            if filter.evaluate(with: object) {
+            if filter.evaluate(object: object, entity: entity) {
                 self.insertEntity(entity, changeHandler: changeHandler)
             }
         }

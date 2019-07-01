@@ -8,7 +8,7 @@
 import CoreData
 
 extension Percy {
-    public func makeObserver<T>(filter: NSPredicate? = nil) -> ChangeObserver<T> {
+    public func makeObserver<T>(filter: Percy.Filter<T>? = nil) -> ChangeObserver<T> {
         return ChangeObserver(context: mainContext, filter: filter, in: self)
     }
 }
@@ -22,12 +22,12 @@ public final class ChangeObserver<T: Persistable> {
     }
     
     private unowned let percy: Percy
-    private let filter: NSPredicate?
+    private let filter: Percy.Filter<T>?
     private var identifiers = Set<T.IDType>()
     
     public var onChanges: (([Change]) -> Void)?
     
-    init(context: NSManagedObjectContext, filter: NSPredicate?, in percy: Percy) {
+    init(context: NSManagedObjectContext, filter: Percy.Filter<T>?, in percy: Percy) {
         self.filter = filter
         self.percy = percy
         reloadIdentifiers()
@@ -38,7 +38,12 @@ public final class ChangeObserver<T: Persistable> {
     }
     
     public func reloadIdentifiers() {
-        self.identifiers = Set(percy.getIdentifiers(for: T.self, predicate: filter, sortDescriptors: nil, fetchLimit: nil))
+        if let filterBlock = filter?.block {
+            // Think about different filter joiners
+        }
+        else {
+            self.identifiers = Set(percy.getIdentifiers(for: T.self, predicate: filter?.predicate, sortDescriptors: nil, fetchLimit: nil))
+        }
     }
     
     @objc private func managedObjectContextObjectsDidChange(notification: Notification) {

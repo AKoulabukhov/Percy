@@ -14,6 +14,7 @@ let percy = try! Percy(dataModelName: "Model")
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var liveList: LiveList<User>?
     var observer: ChangeObserver<UserAvatar>?
@@ -25,8 +26,8 @@ class ViewController: UIViewController {
     }
     
     func setupLiveList() {
-        // Filter only correct emails, sort by ID ASC
-        liveList = percy.makeLiveList(filter: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"), sorting: { $0.id < $1.id })
+        // Sort by ID ASC
+        liveList = percy.makeLiveList(filter: selectedFilter, sorting: { $0.id < $1.id })
         liveList?.onChange = { [unowned self] in $0.updateTableView(self.tableView) }
         liveList?.onFinish = { [unowned self] in self.refreshFooter() }
     }
@@ -40,6 +41,14 @@ class ViewController: UIViewController {
     func refreshFooter() {
         tableView.footerView(forSection: 0)?.textLabel?.text = tableView(tableView, titleForFooterInSection: 0)
         tableView.footerView(forSection: 0)?.sizeToFit()
+    }
+    
+    var selectedFilter: Percy.Filter<User>? {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: return .init(predicate: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"))
+        case 1: return .init(block: { $0.avatar == nil })
+        default: return nil
+        }
     }
     
 }
@@ -70,12 +79,14 @@ fileprivate extension ViewController {
     
     @IBAction func trashAction(_ sender: UIBarButtonItem) {
         // Drop livelist & observer to prevent us from handling every deleted user
-        liveList = nil
-        observer = nil
-        try! percy.delete(entitiesOfType: User.self, predicate: nil)
-        setupLiveList()
-        setupObserver()
-        tableView.reloadData()
+        performIgnoringObserving {
+            try! percy.delete(entitiesOfType: User.self, predicate: nil)
+        }
+    }
+    
+    @IBAction func changeFilterAction(_ sender: UISegmentedControl) {
+        // Re-setup filter & observer
+        performIgnoringObserving { }
     }
     
     @IBAction func composeAction(_ sender: UIBarButtonItem) {
@@ -106,6 +117,17 @@ fileprivate extension ViewController {
         }
     }
     
+    func performIgnoringObserving(block: () -> Void) {
+        // Drop livelist & observer to prevent us from handling every change
+        liveList = nil
+        observer = nil
+        block()
+        setupLiveList()
+        setupObserver()
+        tableView.reloadData()
+    }
+    
+    // Just to retain instances
     static var tempPercy: (Percy, Percy.RemoteStoreMerger)?
     
     func createNewUserInAnotherPercyInstance() {

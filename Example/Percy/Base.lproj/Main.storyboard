@@ -22,35 +22,44 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TuW-mi-BQQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="35y-hD-Rbh"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="nK3-Oy-yyq"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="btH-Hi-3Sa">
+                                <rect key="frame" x="16" y="631" width="343" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="zGm-l4-l50"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Correct emails"/>
+                                    <segment title="No avatar"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeFilterAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="bBy-KE-uZb"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TuW-mi-BQQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0pb-dV-8iU"/>
+                            <constraint firstAttribute="trailing" secondItem="btH-Hi-3Sa" secondAttribute="trailing" constant="16" id="4xK-Yb-KlC"/>
                             <constraint firstAttribute="trailing" secondItem="TuW-mi-BQQ" secondAttribute="trailing" id="7xf-sX-RPU"/>
+                            <constraint firstItem="btH-Hi-3Sa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="I80-tp-ewY"/>
+                            <constraint firstItem="btH-Hi-3Sa" firstAttribute="top" secondItem="TuW-mi-BQQ" secondAttribute="bottom" constant="8" id="QeO-1e-NQz"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="btH-Hi-3Sa" secondAttribute="bottom" constant="8" id="R0b-u6-OL5"/>
                             <constraint firstItem="TuW-mi-BQQ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="bwe-jQ-Iud"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="TuW-mi-BQQ" secondAttribute="bottom" id="uCQ-oU-xd0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="0Mm-Em-KZP">
-                        <leftBarButtonItems>
-                            <barButtonItem systemItem="trash" id="9Lk-a6-QSY">
-                                <connections>
-                                    <action selector="trashAction:" destination="vXZ-lx-hvc" id="p22-BS-9kE"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="reply" id="Csh-0W-rpO">
-                                <connections>
-                                    <action selector="redoAction:" destination="vXZ-lx-hvc" id="uAv-DB-SIQ"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="9Lk-a6-QSY">
+                            <connections>
+                                <action selector="trashAction:" destination="vXZ-lx-hvc" id="p22-BS-9kE"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="W3A-jW-kLg">
                                 <connections>
@@ -65,6 +74,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentedControl" destination="btH-Hi-3Sa" id="tNb-nn-EKe"/>
                         <outlet property="tableView" destination="TuW-mi-BQQ" id="Xnf-Kx-to2"/>
                     </connections>
                 </viewController>
