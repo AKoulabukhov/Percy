@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     func setupLiveList() {
         // Filter only correct emails, sort by ID ASC
-        liveList = percy.makeLiveList(filter: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"), sorting: { $0.id < $1.id })
+        liveList = percy.makeLiveList(predicate: NSPredicate(format:"email LIKE[cd] %@", "*@*.??"), sorting: { $0.id < $1.id })
         liveList?.onChange = { [unowned self] in $0.updateTableView(self.tableView) }
         liveList?.onFinish = { [unowned self] in self.refreshFooter() }
     }
