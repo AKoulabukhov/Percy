@@ -1,22 +1,26 @@
 {
   "name": "Percy",
   "version": "0.1.0",
-  "summary": "A short description of Percy.",
-  "description": "TODO: Add long description of the pod here.",
+  "swift_versions": "5.0",
+  "summary": "An elegant CoreData wrapper.",
+  "description": "Percy is abstraction over CoreData stack.\nJust create CoreData model, structs mirroring this model\nand conform them to Persistable protocol.\nNow you have thread safe CRUD store to persist all of them.",
   "homepage": "https://github.com/akoulabukhov/Percy",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "akoulabukhov": "wowid@list.ru"
+    "Alexander Kulabukhov": "wowid@list.ru"
   },
   "source": {
     "git": "https://github.com/akoulabukhov/Percy.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://instagram.com/swift_codes",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "Percy/Classes/**/*"
+  "source_files": "Sources/Percy/Classes/**/*",
+  "frameworks": "CoreData",
+  "swift_version": "5.0"
 }

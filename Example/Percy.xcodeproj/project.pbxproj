@@ -148,7 +148,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				AB2A56E1E01691B541839103 /* [CP] Embed Pods Frameworks */,
-				F6E6013D70AF8361716E517E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,7 +230,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Percy_Example/Pods-Percy_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Percy_Example/Pods-Percy_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Percy/Percy.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -240,22 +239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Percy_Example/Pods-Percy_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6E6013D70AF8361716E517E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Percy_Example/Pods-Percy_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Percy_Example/Pods-Percy_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
