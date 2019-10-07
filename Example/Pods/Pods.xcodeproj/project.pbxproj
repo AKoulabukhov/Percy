@@ -7,251 +7,254 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A94E63F6E0264F7790B2917AFCC2F32 /* PercyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A02CD6F5DB09559FCD2625049A1B21 /* PercyError.swift */; };
-		2EDB240DCA38097EE201E4B2288AB017 /* Pods-Percy_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CADD2581B892D7F32F18D63BC281437 /* Pods-Percy_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48092F6B7C705720C32A9387E02ED353 /* Percy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7D0BD852E69D7CD6769EB41DBB93E8 /* Percy-dummy.m */; };
-		4E0828551A28E970E41CEB6FCF72CD82 /* Percy+Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */; };
-		62945926BA376D7A028A839697A8819A /* Percy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B84C711A3F1F93CF5703C174116AA0D /* Percy.swift */; };
-		62CA6B40CB5D57446C5C5AFF969CD225 /* Percy+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA52BB1EDF3C070669AC87099CCC114 /* Percy+Info.swift */; };
-		6389C47460DAA1B503BB238610E558DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		67039C583C58AF70FF94467B0FC554BB /* Pods-Percy_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D2609BFB4E8024D9EF6842A14991DE /* Pods-Percy_Example-dummy.m */; };
-		6CA5D9297F4471A93E8C1EB468E06882 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC270B773D7D407F97838B7C8F216E3 /* Persistable.swift */; };
-		6FA865713074CAAE3E17F2ED21B4ED19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		79DC909C7BEDA77DAE336332A2FE64CB /* Percy+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E48BD330741F05F95FB466CB25A7075 /* Percy+Context.swift */; };
-		B52D454A20EE06C100ED4C51 /* PercyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52D454920EE06C100ED4C51 /* PercyResult.swift */; };
-		B532183720CF1BC900C8D72E /* PersistableSubentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532183620CF1BC900C8D72E /* PersistableSubentity.swift */; };
-		B59FD90220D6910500D8FCF8 /* StoreDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FD90120D6910500D8FCF8 /* StoreDescription.swift */; };
-		B5E5DD7A20A0DF1000342EBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7920A0DF1000342EBD /* Extensions.swift */; };
-		B5E5DD7F20A6ADC600342EBD /* Percy+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */; };
-		C90C7E01228E8748007F5843 /* Percy+RemoteStoreMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90C7E00228E8748007F5843 /* Percy+RemoteStoreMerger.swift */; };
-		C99D84A222004139000E7D46 /* Percy+ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D84A122004139000E7D46 /* Percy+ChangeObserver.swift */; };
-		C99D84A4220041AB000E7D46 /* PercyChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99D84A3220041AB000E7D46 /* PercyChangeType.swift */; };
-		D95C47175583CF1FEEC89E1BCB6DFA01 /* Percy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF926A25E117028ADF824A62D6A4BCF9 /* Percy+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */; };
-		F49632957684F08BA9EB514E7DDB03CD /* Percy+LiveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */; };
+		07A1E7B19143EAAD13A0822AEAA62835 /* PercyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1CF1C69EF16C449DC3C57403E505B /* PercyResult.swift */; };
+		1211538C99D316F68DA49DF0EFCAE05E /* PercyChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09942AE2370940C42347E4D4AC904164 /* PercyChangeType.swift */; };
+		1CF9E120AD457CEA40A9A822C76704E0 /* Percy+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97015B8859985CD00B21F949F890DFF /* Percy+Info.swift */; };
+		289E21FEDA5E1D49019F15068B29D966 /* StoreDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFDA340F09EBD9D92BDEA27A8666597 /* StoreDescription.swift */; };
+		335DBEC6D982CD41AACADE969A4C90A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13E37530B47F5DA0E598490887362E7 /* CoreData.framework */; };
+		3803D02689ACEB9041304DAFDFE007CF /* Percy+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F00BF5B3A384F877A17A86FDB048E /* Percy+Transaction.swift */; };
+		50AF7E389871842D12163DED5CBBBC0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52A6C3B1B94B8C68F11070716C2E0A7 /* Foundation.framework */; };
+		55281251E015C36DB3ADEE050DC3C8AB /* PercyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349783EE86C8645B87038E3958AE9627 /* PercyError.swift */; };
+		612F1341AB6F5AA4600522F0B0813C97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786CB22F4C3F79D40C6428F22FD93439 /* Extensions.swift */; };
+		6933FFCE98AA00EC3BA043AAEC3386D2 /* Percy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7323385BF3ADD46930B8F0011CC2A739 /* Percy-dummy.m */; };
+		70CF8C80DFBC224001C42907C2F7F3F0 /* Percy+ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524A9137B4B88CC93B791DA8AFCED4A /* Percy+ChangeObserver.swift */; };
+		72196DA8BE74DB08CA0480D113E29AD6 /* Percy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2249B034E00346C5E9CAF4521229D6FA /* Percy.swift */; };
+		8093DCE17005413BB95B32111DD56C55 /* Percy+LiveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77652517140D729651F6473365D7F95D /* Percy+LiveList.swift */; };
+		831BEA3EDC34E3DDF56677DC4C755971 /* Percy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B0DFD7161C19133A0A0A600D46F026 /* Percy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F6200568A68B57C09A2FF195403E84D /* PersistableSubentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9736735FEF3D464E8B2ADE302DE10 /* PersistableSubentity.swift */; };
+		A9D3D1B3A61BF7AA527C906C29DCD138 /* Percy+RemoteStoreMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769ADD388BCE503F7334697BC26C639 /* Percy+RemoteStoreMerger.swift */; };
+		B0CAD2B0F2932D740D5333623586FB79 /* Pods-Percy_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 644D47991ADB3A648D54E5CCD3D48633 /* Pods-Percy_Example-dummy.m */; };
+		B6B44A5EF6C7E91635133036F4EB25C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52A6C3B1B94B8C68F11070716C2E0A7 /* Foundation.framework */; };
+		B80FB36E4DFEE16AE58723A238AEB8E4 /* Pods-Percy_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0819BBB8CD36B3A8BD8111B15738E04B /* Pods-Percy_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D50449D78A004A372EC92424253B26E6 /* Percy+Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05410FB58EB4A007FD6ECCE648B015B6 /* Percy+Stores.swift */; };
+		E8829FE3311DB68AC7019F39B5195B81 /* Percy+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872522EE118880A640BDD251C3B3B1A /* Percy+Context.swift */; };
+		EEE0E0C4D0359EE26DD927BE85429419 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6C2B2D294FC1364318975362AE6A7 /* Persistable.swift */; };
+		F583AFB7D46FD9D218B010DBC0A565E2 /* Percy+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B5196A159570C87979C81F6AF44B2 /* Percy+Operations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9A032C235F7071AB826D693BB66443CB /* PBXContainerItemProxy */ = {
+		E7E861EDDFF837D024A23325CD48100B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0965AEA4793A71F1DDD823FCF724394E;
+			remoteGlobalIDString = 0620B2B268D51FAE40B90FD94906AFCD;
 			remoteInfo = Percy;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0036A6021B7E37E26AD690BD05E123A7 /* Percy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Percy.xcconfig; sourceTree = "<group>"; };
-		0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+LiveList.swift"; path = "Percy/Classes/Percy+LiveList.swift"; sourceTree = "<group>"; };
-		030F58BFC9E231766A9F647F78C1FE80 /* Percy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Percy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Percy-umbrella.h"; sourceTree = "<group>"; };
-		1DC270B773D7D407F97838B7C8F216E3 /* Persistable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Persistable.swift; path = Percy/Classes/Persistable.swift; sourceTree = "<group>"; };
-		36A02CD6F5DB09559FCD2625049A1B21 /* PercyError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PercyError.swift; path = Percy/Classes/PercyError.swift; sourceTree = "<group>"; };
-		3C48E824F99CAEBE19B1F37739B98C99 /* Pods-Percy_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Percy_Example-frameworks.sh"; sourceTree = "<group>"; };
-		3DE8B63B68C31B83C6472E6304151016 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		4DA52BB1EDF3C070669AC87099CCC114 /* Percy+Info.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Info.swift"; path = "Percy/Classes/Percy+Info.swift"; sourceTree = "<group>"; };
-		549AF2F99FE296D874402F2B66D3FCAA /* Pods-Percy_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Percy_Example-resources.sh"; sourceTree = "<group>"; };
-		57F297EE220B6F8F91DE7A4B2BF0955B /* Pods-Percy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Percy_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5CADD2581B892D7F32F18D63BC281437 /* Pods-Percy_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Percy_Example-umbrella.h"; sourceTree = "<group>"; };
-		627AEAE3047D65AEF2D98AB47D5CB396 /* Pods-Percy_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Percy_Example.modulemap"; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6B84C711A3F1F93CF5703C174116AA0D /* Percy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Percy.swift; path = Percy/Classes/Percy.swift; sourceTree = "<group>"; };
-		6D7D0BD852E69D7CD6769EB41DBB93E8 /* Percy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Percy-dummy.m"; sourceTree = "<group>"; };
-		76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Operations.swift"; path = "Percy/Classes/Percy+Operations.swift"; sourceTree = "<group>"; };
-		8205C91EF722FB756660F327278EC29A /* Percy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Percy.modulemap; sourceTree = "<group>"; };
-		8645FB44830DED9C746FCA1B672FE784 /* Pods_Percy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Percy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		89D2609BFB4E8024D9EF6842A14991DE /* Pods-Percy_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Percy_Example-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		99B71CA0819F867A59D58795C133E09D /* Percy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = Percy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9AE799B66F0EDBD325EA42D3F6535010 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		9E48BD330741F05F95FB466CB25A7075 /* Percy+Context.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Context.swift"; path = "Percy/Classes/Percy+Context.swift"; sourceTree = "<group>"; };
-		AB629929EF4063C9B251F4AE928D1938 /* Pods-Percy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Percy_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AD5F879EFB3D42770B7BAC7121830412 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B52D454920EE06C100ED4C51 /* PercyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PercyResult.swift; path = Percy/Classes/PercyResult.swift; sourceTree = "<group>"; };
-		B532183620CF1BC900C8D72E /* PersistableSubentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistableSubentity.swift; path = Percy/Classes/PersistableSubentity.swift; sourceTree = "<group>"; };
-		B59FD90120D6910500D8FCF8 /* StoreDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreDescription.swift; path = Percy/Classes/StoreDescription.swift; sourceTree = "<group>"; };
-		B5E5DD7920A0DF1000342EBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Percy/Classes/Extensions.swift; sourceTree = "<group>"; };
-		B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Percy+Transaction.swift"; path = "Percy/Classes/Percy+Transaction.swift"; sourceTree = "<group>"; };
-		C90C7E00228E8748007F5843 /* Percy+RemoteStoreMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Percy+RemoteStoreMerger.swift"; path = "Percy/Classes/Percy+RemoteStoreMerger.swift"; sourceTree = "<group>"; };
-		C99D84A122004139000E7D46 /* Percy+ChangeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Percy+ChangeObserver.swift"; path = "Percy/Classes/Percy+ChangeObserver.swift"; sourceTree = "<group>"; };
-		C99D84A3220041AB000E7D46 /* PercyChangeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PercyChangeType.swift; path = Percy/Classes/PercyChangeType.swift; sourceTree = "<group>"; };
-		D2D37E4BA592CD0ABDB1A622FF08C649 /* Pods-Percy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Percy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Stores.swift"; path = "Percy/Classes/Percy+Stores.swift"; sourceTree = "<group>"; };
-		DE451F73864AD4B2273FC0239DDCFEA1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED6D83EAF098DFE03716905F0A9808E0 /* Pods-Percy_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Percy_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EFEB14D6EAB0E8A4B83F937C9B828681 /* Percy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Percy-prefix.pch"; sourceTree = "<group>"; };
+		0524A9137B4B88CC93B791DA8AFCED4A /* Percy+ChangeObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+ChangeObserver.swift"; path = "Sources/Percy/Classes/Percy+ChangeObserver.swift"; sourceTree = "<group>"; };
+		05410FB58EB4A007FD6ECCE648B015B6 /* Percy+Stores.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Stores.swift"; path = "Sources/Percy/Classes/Percy+Stores.swift"; sourceTree = "<group>"; };
+		07188976CE292E6710173D86642430D4 /* Percy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Percy-prefix.pch"; sourceTree = "<group>"; };
+		0819BBB8CD36B3A8BD8111B15738E04B /* Pods-Percy_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Percy_Example-umbrella.h"; sourceTree = "<group>"; };
+		09942AE2370940C42347E4D4AC904164 /* PercyChangeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PercyChangeType.swift; path = Sources/Percy/Classes/PercyChangeType.swift; sourceTree = "<group>"; };
+		0D7C0C947E0B10CAC60F0FB7CF8E239B /* Pods-Percy_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Percy_Example-Info.plist"; sourceTree = "<group>"; };
+		0EFDA340F09EBD9D92BDEA27A8666597 /* StoreDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreDescription.swift; path = Sources/Percy/Classes/StoreDescription.swift; sourceTree = "<group>"; };
+		112A63D84960013D0CBC6A7539557992 /* Percy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Percy.modulemap; sourceTree = "<group>"; };
+		1673534530C6CB85A15468EEF78168DC /* Percy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Percy.framework; path = Percy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17245699A337DC0F54FF39FE1E92E6C8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1769ADD388BCE503F7334697BC26C639 /* Percy+RemoteStoreMerger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+RemoteStoreMerger.swift"; path = "Sources/Percy/Classes/Percy+RemoteStoreMerger.swift"; sourceTree = "<group>"; };
+		2249B034E00346C5E9CAF4521229D6FA /* Percy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Percy.swift; path = Sources/Percy/Classes/Percy.swift; sourceTree = "<group>"; };
+		349783EE86C8645B87038E3958AE9627 /* PercyError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PercyError.swift; path = Sources/Percy/Classes/PercyError.swift; sourceTree = "<group>"; };
+		3872522EE118880A640BDD251C3B3B1A /* Percy+Context.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Context.swift"; path = "Sources/Percy/Classes/Percy+Context.swift"; sourceTree = "<group>"; };
+		44E1CF1C69EF16C449DC3C57403E505B /* PercyResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PercyResult.swift; path = Sources/Percy/Classes/PercyResult.swift; sourceTree = "<group>"; };
+		54C6EDA2A2C24B2D4B41947B8F47657D /* Percy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Percy-Info.plist"; sourceTree = "<group>"; };
+		54FFB8D6AC17588E4553BAD0FDE4916A /* Pods-Percy_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Percy_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		556259BE56247FBEC8A717C4640E8E6C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		62B0DFD7161C19133A0A0A600D46F026 /* Percy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Percy-umbrella.h"; sourceTree = "<group>"; };
+		644D47991ADB3A648D54E5CCD3D48633 /* Pods-Percy_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Percy_Example-dummy.m"; sourceTree = "<group>"; };
+		724B5196A159570C87979C81F6AF44B2 /* Percy+Operations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Operations.swift"; path = "Sources/Percy/Classes/Percy+Operations.swift"; sourceTree = "<group>"; };
+		7273D18E610332ECB041A8C07D221670 /* Pods_Percy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Percy_Example.framework; path = "Pods-Percy_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7323385BF3ADD46930B8F0011CC2A739 /* Percy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Percy-dummy.m"; sourceTree = "<group>"; };
+		77652517140D729651F6473365D7F95D /* Percy+LiveList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+LiveList.swift"; path = "Sources/Percy/Classes/Percy+LiveList.swift"; sourceTree = "<group>"; };
+		786CB22F4C3F79D40C6428F22FD93439 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Percy/Classes/Extensions.swift; sourceTree = "<group>"; };
+		85414BAF616D4E3586ABDE7A9A61AAD1 /* Pods-Percy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Percy_Example.release.xcconfig"; sourceTree = "<group>"; };
+		935E345DF8BB81E3806874A18F5D0CD2 /* Percy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Percy.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DFCA1F02D290A89A45114797AE54A6A /* Pods-Percy_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Percy_Example.modulemap"; sourceTree = "<group>"; };
+		9FFAFEBD31AFCCBA37A5AD7BBB618441 /* Pods-Percy_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Percy_Example-frameworks.sh"; sourceTree = "<group>"; };
+		A13E37530B47F5DA0E598490887362E7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		A97015B8859985CD00B21F949F890DFF /* Percy+Info.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Info.swift"; path = "Sources/Percy/Classes/Percy+Info.swift"; sourceTree = "<group>"; };
+		D0B6C2B2D294FC1364318975362AE6A7 /* Persistable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Persistable.swift; path = Sources/Percy/Classes/Persistable.swift; sourceTree = "<group>"; };
+		DA2529BDA8CC458CAD4D570D69804DB0 /* Percy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Percy.xcconfig; sourceTree = "<group>"; };
+		E52038813D316BCE2AC6BDD5BE3A2C74 /* Pods-Percy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Percy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E52A6C3B1B94B8C68F11070716C2E0A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ED3F399F4A2CEDD42283EE3F65C9652B /* Pods-Percy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Percy_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F21F00BF5B3A384F877A17A86FDB048E /* Percy+Transaction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Percy+Transaction.swift"; path = "Sources/Percy/Classes/Percy+Transaction.swift"; sourceTree = "<group>"; };
+		F5D9736735FEF3D464E8B2ADE302DE10 /* PersistableSubentity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistableSubentity.swift; path = Sources/Percy/Classes/PersistableSubentity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		64E3D2B67C9FC4F2F1AE2EAE73BB8BD5 /* Frameworks */ = {
+		339491FBF36784637D0EC569C7BC4F4C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FA865713074CAAE3E17F2ED21B4ED19 /* Foundation.framework in Frameworks */,
+				B6B44A5EF6C7E91635133036F4EB25C9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7FAA3CE9999528E61AD7E6D662C73A6C /* Frameworks */ = {
+		4714E728C0542B0562795DF678D67BEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6389C47460DAA1B503BB238610E558DA /* Foundation.framework in Frameworks */,
+				335DBEC6D982CD41AACADE969A4C90A6 /* CoreData.framework in Frameworks */,
+				50AF7E389871842D12163DED5CBBBC0F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02A85DB83C2B059D2FC0DB7011BB66EF /* Targets Support Files */ = {
+		0EA94824ED738DEEC0395BC834F8C497 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				47CAB1DADB5808CB567FEC7BB7F34661 /* Pods-Percy_Example */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		11D4C4708062266B482E78810BC9070D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				AD5F879EFB3D42770B7BAC7121830412 /* Info.plist */,
-				8205C91EF722FB756660F327278EC29A /* Percy.modulemap */,
-				0036A6021B7E37E26AD690BD05E123A7 /* Percy.xcconfig */,
-				6D7D0BD852E69D7CD6769EB41DBB93E8 /* Percy-dummy.m */,
-				EFEB14D6EAB0E8A4B83F937C9B828681 /* Percy-prefix.pch */,
-				1AB1298CB0316B25E40C1A8531BDCEDD /* Percy-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Percy";
-			sourceTree = "<group>";
-		};
-		21541132EECD38EE4FBA7F2F3EEB2556 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				3DE8B63B68C31B83C6472E6304151016 /* LICENSE */,
-				99B71CA0819F867A59D58795C133E09D /* Percy.podspec */,
-				9AE799B66F0EDBD325EA42D3F6535010 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		27DAC5E4FE77971B307421517BDEB453 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EE89CA5CCDF225E7E3D273062933909F /* Percy */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		47CAB1DADB5808CB567FEC7BB7F34661 /* Pods-Percy_Example */ = {
-			isa = PBXGroup;
-			children = (
-				DE451F73864AD4B2273FC0239DDCFEA1 /* Info.plist */,
-				627AEAE3047D65AEF2D98AB47D5CB396 /* Pods-Percy_Example.modulemap */,
-				ED6D83EAF098DFE03716905F0A9808E0 /* Pods-Percy_Example-acknowledgements.markdown */,
-				D2D37E4BA592CD0ABDB1A622FF08C649 /* Pods-Percy_Example-acknowledgements.plist */,
-				89D2609BFB4E8024D9EF6842A14991DE /* Pods-Percy_Example-dummy.m */,
-				3C48E824F99CAEBE19B1F37739B98C99 /* Pods-Percy_Example-frameworks.sh */,
-				549AF2F99FE296D874402F2B66D3FCAA /* Pods-Percy_Example-resources.sh */,
-				5CADD2581B892D7F32F18D63BC281437 /* Pods-Percy_Example-umbrella.h */,
-				57F297EE220B6F8F91DE7A4B2BF0955B /* Pods-Percy_Example.debug.xcconfig */,
-				AB629929EF4063C9B251F4AE928D1938 /* Pods-Percy_Example.release.xcconfig */,
-			);
-			name = "Pods-Percy_Example";
-			path = "Target Support Files/Pods-Percy_Example";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				27DAC5E4FE77971B307421517BDEB453 /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				DC2E82230E0321A35163B3BE5A6CE599 /* Products */,
-				02A85DB83C2B059D2FC0DB7011BB66EF /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		DC2E82230E0321A35163B3BE5A6CE599 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				030F58BFC9E231766A9F647F78C1FE80 /* Percy.framework */,
-				8645FB44830DED9C746FCA1B672FE784 /* Pods_Percy_Example.framework */,
+				1673534530C6CB85A15468EEF78168DC /* Percy.framework */,
+				7273D18E610332ECB041A8C07D221670 /* Pods_Percy_Example.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE89CA5CCDF225E7E3D273062933909F /* Percy */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6B84C711A3F1F93CF5703C174116AA0D /* Percy.swift */,
-				1DC270B773D7D407F97838B7C8F216E3 /* Persistable.swift */,
-				B532183620CF1BC900C8D72E /* PersistableSubentity.swift */,
-				9E48BD330741F05F95FB466CB25A7075 /* Percy+Context.swift */,
-				0182DDFA074841D171DDE39E381D3B40 /* Percy+LiveList.swift */,
-				C99D84A122004139000E7D46 /* Percy+ChangeObserver.swift */,
-				76C30BEBC68011482183ECFB81428BA2 /* Percy+Operations.swift */,
-				C90C7E00228E8748007F5843 /* Percy+RemoteStoreMerger.swift */,
-				DC7F9FBACD101083DE92526556A3F446 /* Percy+Stores.swift */,
-				B59FD90120D6910500D8FCF8 /* StoreDescription.swift */,
-				B5E5DD7E20A6ADC600342EBD /* Percy+Transaction.swift */,
-				4DA52BB1EDF3C070669AC87099CCC114 /* Percy+Info.swift */,
-				C99D84A3220041AB000E7D46 /* PercyChangeType.swift */,
-				B52D454920EE06C100ED4C51 /* PercyResult.swift */,
-				36A02CD6F5DB09559FCD2625049A1B21 /* PercyError.swift */,
-				B5E5DD7920A0DF1000342EBD /* Extensions.swift */,
-				21541132EECD38EE4FBA7F2F3EEB2556 /* Pod */,
-				11D4C4708062266B482E78810BC9070D /* Support Files */,
+				429055C9436D20C513F0D334460D56BB /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23E1DBE43EF59EE10EEC6716EF515677 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3477EBF6BB67A0042615C51D42D84FB1 /* Percy */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		3477EBF6BB67A0042615C51D42D84FB1 /* Percy */ = {
+			isa = PBXGroup;
+			children = (
+				786CB22F4C3F79D40C6428F22FD93439 /* Extensions.swift */,
+				2249B034E00346C5E9CAF4521229D6FA /* Percy.swift */,
+				0524A9137B4B88CC93B791DA8AFCED4A /* Percy+ChangeObserver.swift */,
+				3872522EE118880A640BDD251C3B3B1A /* Percy+Context.swift */,
+				A97015B8859985CD00B21F949F890DFF /* Percy+Info.swift */,
+				77652517140D729651F6473365D7F95D /* Percy+LiveList.swift */,
+				724B5196A159570C87979C81F6AF44B2 /* Percy+Operations.swift */,
+				1769ADD388BCE503F7334697BC26C639 /* Percy+RemoteStoreMerger.swift */,
+				05410FB58EB4A007FD6ECCE648B015B6 /* Percy+Stores.swift */,
+				F21F00BF5B3A384F877A17A86FDB048E /* Percy+Transaction.swift */,
+				09942AE2370940C42347E4D4AC904164 /* PercyChangeType.swift */,
+				349783EE86C8645B87038E3958AE9627 /* PercyError.swift */,
+				44E1CF1C69EF16C449DC3C57403E505B /* PercyResult.swift */,
+				D0B6C2B2D294FC1364318975362AE6A7 /* Persistable.swift */,
+				F5D9736735FEF3D464E8B2ADE302DE10 /* PersistableSubentity.swift */,
+				0EFDA340F09EBD9D92BDEA27A8666597 /* StoreDescription.swift */,
+				8A1460A6A21C05DE18A96840B17A6276 /* Pod */,
+				73015925B6F5C706DF4A177265E95604 /* Support Files */,
 			);
 			name = Percy;
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		429055C9436D20C513F0D334460D56BB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A13E37530B47F5DA0E598490887362E7 /* CoreData.framework */,
+				E52A6C3B1B94B8C68F11070716C2E0A7 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		51F0CEF85B4BFDAEABFC6A604A39B5FE /* Pods-Percy_Example */ = {
+			isa = PBXGroup;
+			children = (
+				9DFCA1F02D290A89A45114797AE54A6A /* Pods-Percy_Example.modulemap */,
+				54FFB8D6AC17588E4553BAD0FDE4916A /* Pods-Percy_Example-acknowledgements.markdown */,
+				E52038813D316BCE2AC6BDD5BE3A2C74 /* Pods-Percy_Example-acknowledgements.plist */,
+				644D47991ADB3A648D54E5CCD3D48633 /* Pods-Percy_Example-dummy.m */,
+				9FFAFEBD31AFCCBA37A5AD7BBB618441 /* Pods-Percy_Example-frameworks.sh */,
+				0D7C0C947E0B10CAC60F0FB7CF8E239B /* Pods-Percy_Example-Info.plist */,
+				0819BBB8CD36B3A8BD8111B15738E04B /* Pods-Percy_Example-umbrella.h */,
+				ED3F399F4A2CEDD42283EE3F65C9652B /* Pods-Percy_Example.debug.xcconfig */,
+				85414BAF616D4E3586ABDE7A9A61AAD1 /* Pods-Percy_Example.release.xcconfig */,
+			);
+			name = "Pods-Percy_Example";
+			path = "Target Support Files/Pods-Percy_Example";
+			sourceTree = "<group>";
+		};
+		73015925B6F5C706DF4A177265E95604 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				112A63D84960013D0CBC6A7539557992 /* Percy.modulemap */,
+				DA2529BDA8CC458CAD4D570D69804DB0 /* Percy.xcconfig */,
+				7323385BF3ADD46930B8F0011CC2A739 /* Percy-dummy.m */,
+				54C6EDA2A2C24B2D4B41947B8F47657D /* Percy-Info.plist */,
+				07188976CE292E6710173D86642430D4 /* Percy-prefix.pch */,
+				62B0DFD7161C19133A0A0A600D46F026 /* Percy-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Percy";
+			sourceTree = "<group>";
+		};
+		8A1460A6A21C05DE18A96840B17A6276 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				556259BE56247FBEC8A717C4640E8E6C /* LICENSE */,
+				935E345DF8BB81E3806874A18F5D0CD2 /* Percy.podspec */,
+				17245699A337DC0F54FF39FE1E92E6C8 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				23E1DBE43EF59EE10EEC6716EF515677 /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				0EA94824ED738DEEC0395BC834F8C497 /* Products */,
+				FD49B8596D65C194ADE438F31D1BF088 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		FD49B8596D65C194ADE438F31D1BF088 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				51F0CEF85B4BFDAEABFC6A604A39B5FE /* Pods-Percy_Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2DB35C6D90CA297BCCFD02DE60C2C92C /* Headers */ = {
+		1EFAA206DF626CC98056D10FC52F278E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D95C47175583CF1FEEC89E1BCB6DFA01 /* Percy-umbrella.h in Headers */,
+				B80FB36E4DFEE16AE58723A238AEB8E4 /* Pods-Percy_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C65D97C6D9BD0C2CFA11C1BE0F2D5126 /* Headers */ = {
+		BECA82E1BE52838471C5292344DA8B7F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EDB240DCA38097EE201E4B2288AB017 /* Pods-Percy_Example-umbrella.h in Headers */,
+				831BEA3EDC34E3DDF56677DC4C755971 /* Percy-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0965AEA4793A71F1DDD823FCF724394E /* Percy */ = {
+		0620B2B268D51FAE40B90FD94906AFCD /* Percy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91E9398988E352D1D216A2E36D1736B7 /* Build configuration list for PBXNativeTarget "Percy" */;
+			buildConfigurationList = B46E114D68919A183CA4F545A93DF47D /* Build configuration list for PBXNativeTarget "Percy" */;
 			buildPhases = (
-				5982AC3EFD9EBC310B6FBD7E1EE083C3 /* Sources */,
-				7FAA3CE9999528E61AD7E6D662C73A6C /* Frameworks */,
-				2DB35C6D90CA297BCCFD02DE60C2C92C /* Headers */,
+				BECA82E1BE52838471C5292344DA8B7F /* Headers */,
+				A7C82147EF6E5A2B3CD9D3E8C00E3BF4 /* Sources */,
+				4714E728C0542B0562795DF678D67BEF /* Frameworks */,
+				5EBA6298D809DDBD2ED21A285A6B0419 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -259,109 +262,122 @@
 			);
 			name = Percy;
 			productName = Percy;
-			productReference = 030F58BFC9E231766A9F647F78C1FE80 /* Percy.framework */;
+			productReference = 1673534530C6CB85A15468EEF78168DC /* Percy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A7ABD4176674470D66418DEABCAECC15 /* Pods-Percy_Example */ = {
+		88C0449600317AC7414611BB234B2EC9 /* Pods-Percy_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F056539B2FF26D2BF645F95B16E91D0D /* Build configuration list for PBXNativeTarget "Pods-Percy_Example" */;
+			buildConfigurationList = 3E9454F5E3C734DE829182AC68CB3306 /* Build configuration list for PBXNativeTarget "Pods-Percy_Example" */;
 			buildPhases = (
-				75D58928075C6C36FB2A8D9934F93442 /* Sources */,
-				64E3D2B67C9FC4F2F1AE2EAE73BB8BD5 /* Frameworks */,
-				C65D97C6D9BD0C2CFA11C1BE0F2D5126 /* Headers */,
+				1EFAA206DF626CC98056D10FC52F278E /* Headers */,
+				42F61984B0890E429F09B14C48027AC3 /* Sources */,
+				339491FBF36784637D0EC569C7BC4F4C /* Frameworks */,
+				97AED18B78FE42B32E448F5148EBF2D1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1167379A9A7A3FBCFDE495E795DCF7D0 /* PBXTargetDependency */,
+				A28F2D84AE1ABAB587E3D01DC601FB6A /* PBXTargetDependency */,
 			);
 			name = "Pods-Percy_Example";
 			productName = "Pods-Percy_Example";
-			productReference = 8645FB44830DED9C746FCA1B672FE784 /* Pods_Percy_Example.framework */;
+			productReference = 7273D18E610332ECB041A8C07D221670 /* Pods_Percy_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
-				TargetAttributes = {
-					0965AEA4793A71F1DDD823FCF724394E = {
-						LastSwiftMigration = 1020;
-					};
-				};
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = DC2E82230E0321A35163B3BE5A6CE599 /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0EA94824ED738DEEC0395BC834F8C497 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0965AEA4793A71F1DDD823FCF724394E /* Percy */,
-				A7ABD4176674470D66418DEABCAECC15 /* Pods-Percy_Example */,
+				0620B2B268D51FAE40B90FD94906AFCD /* Percy */,
+				88C0449600317AC7414611BB234B2EC9 /* Pods-Percy_Example */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		5982AC3EFD9EBC310B6FBD7E1EE083C3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXResourcesBuildPhase section */
+		5EBA6298D809DDBD2ED21A285A6B0419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C90C7E01228E8748007F5843 /* Percy+RemoteStoreMerger.swift in Sources */,
-				B52D454A20EE06C100ED4C51 /* PercyResult.swift in Sources */,
-				B5E5DD7F20A6ADC600342EBD /* Percy+Transaction.swift in Sources */,
-				79DC909C7BEDA77DAE336332A2FE64CB /* Percy+Context.swift in Sources */,
-				62CA6B40CB5D57446C5C5AFF969CD225 /* Percy+Info.swift in Sources */,
-				F49632957684F08BA9EB514E7DDB03CD /* Percy+LiveList.swift in Sources */,
-				DF926A25E117028ADF824A62D6A4BCF9 /* Percy+Operations.swift in Sources */,
-				4E0828551A28E970E41CEB6FCF72CD82 /* Percy+Stores.swift in Sources */,
-				B532183720CF1BC900C8D72E /* PersistableSubentity.swift in Sources */,
-				B59FD90220D6910500D8FCF8 /* StoreDescription.swift in Sources */,
-				B5E5DD7A20A0DF1000342EBD /* Extensions.swift in Sources */,
-				48092F6B7C705720C32A9387E02ED353 /* Percy-dummy.m in Sources */,
-				C99D84A4220041AB000E7D46 /* PercyChangeType.swift in Sources */,
-				C99D84A222004139000E7D46 /* Percy+ChangeObserver.swift in Sources */,
-				62945926BA376D7A028A839697A8819A /* Percy.swift in Sources */,
-				1A94E63F6E0264F7790B2917AFCC2F32 /* PercyError.swift in Sources */,
-				6CA5D9297F4471A93E8C1EB468E06882 /* Persistable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75D58928075C6C36FB2A8D9934F93442 /* Sources */ = {
+		97AED18B78FE42B32E448F5148EBF2D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42F61984B0890E429F09B14C48027AC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67039C583C58AF70FF94467B0FC554BB /* Pods-Percy_Example-dummy.m in Sources */,
+				B0CAD2B0F2932D740D5333623586FB79 /* Pods-Percy_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7C82147EF6E5A2B3CD9D3E8C00E3BF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				612F1341AB6F5AA4600522F0B0813C97 /* Extensions.swift in Sources */,
+				70CF8C80DFBC224001C42907C2F7F3F0 /* Percy+ChangeObserver.swift in Sources */,
+				E8829FE3311DB68AC7019F39B5195B81 /* Percy+Context.swift in Sources */,
+				1CF9E120AD457CEA40A9A822C76704E0 /* Percy+Info.swift in Sources */,
+				8093DCE17005413BB95B32111DD56C55 /* Percy+LiveList.swift in Sources */,
+				F583AFB7D46FD9D218B010DBC0A565E2 /* Percy+Operations.swift in Sources */,
+				A9D3D1B3A61BF7AA527C906C29DCD138 /* Percy+RemoteStoreMerger.swift in Sources */,
+				D50449D78A004A372EC92424253B26E6 /* Percy+Stores.swift in Sources */,
+				3803D02689ACEB9041304DAFDFE007CF /* Percy+Transaction.swift in Sources */,
+				6933FFCE98AA00EC3BA043AAEC3386D2 /* Percy-dummy.m in Sources */,
+				72196DA8BE74DB08CA0480D113E29AD6 /* Percy.swift in Sources */,
+				1211538C99D316F68DA49DF0EFCAE05E /* PercyChangeType.swift in Sources */,
+				55281251E015C36DB3ADEE050DC3C8AB /* PercyError.swift in Sources */,
+				07A1E7B19143EAAD13A0822AEAA62835 /* PercyResult.swift in Sources */,
+				EEE0E0C4D0359EE26DD927BE85429419 /* Persistable.swift in Sources */,
+				9F6200568A68B57C09A2FF195403E84D /* PersistableSubentity.swift in Sources */,
+				289E21FEDA5E1D49019F15068B29D966 /* StoreDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1167379A9A7A3FBCFDE495E795DCF7D0 /* PBXTargetDependency */ = {
+		A28F2D84AE1ABAB587E3D01DC601FB6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Percy;
-			target = 0965AEA4793A71F1DDD823FCF724394E /* Percy */;
-			targetProxy = 9A032C235F7071AB826D693BB66443CB /* PBXContainerItemProxy */;
+			target = 0620B2B268D51FAE40B90FD94906AFCD /* Percy */;
+			targetProxy = E7E861EDDFF837D024A23325CD48100B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2FFAA03B3DA85196AC7222E42406684A /* Release */ = {
+		182190A4F3B7A61D9D296ED8C6D92D35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB629929EF4063C9B251F4AE928D1938 /* Pods-Percy_Example.release.xcconfig */;
+			baseConfigurationReference = 85414BAF616D4E3586ABDE7A9A61AAD1 /* Pods-Percy_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -371,7 +387,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Percy_Example/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Percy_Example/Pods-Percy_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -381,10 +397,9 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Percy_Example;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -392,9 +407,42 @@
 			};
 			name = Release;
 		};
-		415D7852CBB291250247D150CA4054F5 /* Release */ = {
+		197D5106324188EB19C69B8F274433FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0036A6021B7E37E26AD690BD05E123A7 /* Percy.xcconfig */;
+			baseConfigurationReference = ED3F399F4A2CEDD42283EE3F65C9652B /* Pods-Percy_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Percy_Example/Pods-Percy_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Percy_Example/Pods-Percy_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		42985257056DC5545A75C176597B292E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA2529BDA8CC458CAD4D570D69804DB0 /* Percy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -406,16 +454,16 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/Percy/Percy-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Percy/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Percy/Percy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Percy/Percy.modulemap";
+				PRODUCT_MODULE_NAME = Percy;
 				PRODUCT_NAME = Percy;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -424,7 +472,38 @@
 			};
 			name = Release;
 		};
-		5011B865762FC0C0A28ECEC4CB63DC68 /* Debug */ = {
+		7C12554FD485B993ADF08F93F0C0CBFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA2529BDA8CC458CAD4D570D69804DB0 /* Percy.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Percy/Percy-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Percy/Percy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Percy/Percy.modulemap";
+				PRODUCT_MODULE_NAME = Percy;
+				PRODUCT_NAME = Percy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B0087CB4594321EF41619F3181FE120E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -456,7 +535,66 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -477,170 +615,49 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		827269710C98D60C14D46BC6AF9BF728 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		88B766547FF9FFE0750CEE5417FBD91F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57F297EE220B6F8F91DE7A4B2BF0955B /* Pods-Percy_Example.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Percy_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Percy_Example/Pods-Percy_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Percy_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F974BB220A8AC4C5608E75BEC43E3BDC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0036A6021B7E37E26AD690BD05E123A7 /* Percy.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Percy/Percy-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Percy/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Percy/Percy.modulemap";
-				PRODUCT_NAME = Percy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		3E9454F5E3C734DE829182AC68CB3306 /* Build configuration list for PBXNativeTarget "Pods-Percy_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5011B865762FC0C0A28ECEC4CB63DC68 /* Debug */,
-				827269710C98D60C14D46BC6AF9BF728 /* Release */,
+				197D5106324188EB19C69B8F274433FB /* Debug */,
+				182190A4F3B7A61D9D296ED8C6D92D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91E9398988E352D1D216A2E36D1736B7 /* Build configuration list for PBXNativeTarget "Percy" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F974BB220A8AC4C5608E75BEC43E3BDC /* Debug */,
-				415D7852CBB291250247D150CA4054F5 /* Release */,
+				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
+				B0087CB4594321EF41619F3181FE120E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F056539B2FF26D2BF645F95B16E91D0D /* Build configuration list for PBXNativeTarget "Pods-Percy_Example" */ = {
+		B46E114D68919A183CA4F545A93DF47D /* Build configuration list for PBXNativeTarget "Percy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				88B766547FF9FFE0750CEE5417FBD91F /* Debug */,
-				2FFAA03B3DA85196AC7222E42406684A /* Release */,
+				7C12554FD485B993ADF08F93F0C0CBFD /* Debug */,
+				42985257056DC5545A75C176597B292E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }
