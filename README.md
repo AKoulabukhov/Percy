@@ -1,3 +1,5 @@
+## This library is not maintained anymore. Consider using [GRDB.swift](https://github.com/groue/GRDB.swift) as it's CoreData independent and provides broader functionality to operate with data. It also allows building code abstrated of concrete storage type easily as all the CRUD functionality added via Codable.
+
 # Percy
 > An elegant CoreData wrapper
 
